@@ -4,29 +4,26 @@ import '../styles/main.css'
 import data from '../data'
 
 function AboutPage (props) {
+  let rowCounter = 2;
   const unitWidth = 200;
   function timeToPosition (minutes, hours) {
     return unitWidth * hours + unitWidth * (minutes / 60)
   }
   useEffect(() => {
-    const slider = document.querySelector('.gc2');
-    const slider2 = document.querySelector('.gc1');
-    const now = document.querySelector('.now');
+    const container = document.querySelector('.c2');
+    const slider = document.querySelector('.fc2');
+    const slider2 = document.querySelector('.fc1');
+    const allSliders = document.querySelectorAll('.fc1');
     let today = new Date()
-    let hours = today.getHours() - 1
+    let hours = today.getHours()
     let minutes = today.getMinutes()
 
     let time = timeToPosition(minutes, hours)
-
     slider.scrollLeft = time - window.innerWidth / 2;
-    now.style.left = `${time - slider.scrollLeft}px`
-
-    var timeDiv = document.createElement('div');
-    timeDiv.className = 'now2';
-    let hours1 = 12
-    let minutes1 = 0
-    timeDiv.style.left = `${(minutes1/60)*100}%`
-    document.querySelector(`#time${hours1}`).appendChild(timeDiv);
+    const timeDiv = document.createElement('div');
+    timeDiv.className = 'now';
+    timeDiv.style.left = `${(minutes / 60) * 100}%`
+    document.querySelector(`#time${hours}`).appendChild(timeDiv);
 
 
     let isDown = false;
@@ -36,27 +33,26 @@ function AboutPage (props) {
     let scrollTop;
     let dragging = false
 
-    slider.addEventListener('mouseenter', (e) => {
+    container.addEventListener('mouseenter', (e) => {
       e.preventDefault();
     })
-    slider.addEventListener('mousedown', (e) => {
+    container.addEventListener('mousedown', (e) => {
       isDown = true;
-        startX = e.pageX - slider.offsetLeft;
+      startX = e.pageX - slider.offsetLeft;
       startY = e.pageY - slider.offsetTop;
       scrollLeft = slider.scrollLeft;
       scrollTop = slider.scrollTop;
     });
-    slider.addEventListener('scroll', (e) => {
+    container.addEventListener('scroll', (e) => {
       if (dragging) return;
       slider2.scrollLeft = slider.scrollLeft;
-      now.style.left = `${time - slider.scrollLeft}px`
 
     });
-    slider.addEventListener('mouseup', () => {
+    container.addEventListener('mouseup', () => {
       isDown = false;
       dragging = false;
     });
-    slider.addEventListener('mousemove', (e) => {
+    container.addEventListener('mousemove', (e) => {
       if (!isDown) return;
       e.preventDefault();
       dragging = true;
@@ -67,39 +63,53 @@ function AboutPage (props) {
       slider.scrollLeft = scrollLeft - walkx;
       slider.scrollTop = scrollTop - walky;
       slider2.scrollLeft = slider.scrollLeft;
-      now.style.left = `${time - slider.scrollLeft}px`
+      console.log(slider)
     });
+    //// Data processing
+    for (let i = 0; i < data.length; i++) {
+      const newContent = document.createElement('div');
+      const contentHours = data[i].time[0]
+      const contentMins = data[i].time[1]
+      newContent.className = `content`;
+      newContent.id = `content${i}`;
+      newContent.innerHTML = data[i].title;
+      newContent.style.left = `${(contentMins / 60) * 100}%`
+      newContent.style.width = `${data[i].length[0] * unitWidth + (data[i].length[1] / 60) * unitWidth}px`
+      document.querySelector(`#time${contentHours}`).appendChild(newContent);
+
+    }
+    ////
   });
 
   const hours = []
   for (let i = 0; i < 24; i++) {
     let index = (i).toString()
     if (index.length < 2) index = '0' + index
-    hours.push(<div className="grid-item2"  key={i}>{`${index}:00`}</div>)
+    if (i < 23) hours.push(<div className="grid-item1" key={i}>{`${index}:00`}</div>)
+    else hours.push(<div className="grid-item1 end" key={i}>{`${index}:00`}</div>)
   }
-  const content = []
-  for (let i = 0; i < 48; i++) {
-    content.push(<div className="grid-item" id={`time${i}`} key={i}>Content {i}</div>)
+  const rows = []
+  for (let j = 0; j < rowCounter; j++) {
+    const content = []
+    for (let i = 0; i < 24; i++) {
+      content.push(<div className="grid-item2" id={`time${i}`} key={i}>Content {i}</div>)
+    }
+    rows.push(<div className="flex-container fc2" id={`row${j}`} key={j}>{content}</div>)
+
   }
 
-  //// Data processing
-
-  ////
   return (
 
     <div className="outer-container">
 
       <div className="container c1">
-        <div className="grid-container gc1">
+        <div className="flex-container fc1">
           {hours}
-          <div className="now"></div>
         </div>
       </div>
 
       <div className="container c2">
-        <div className="grid-container gc2">
-          {content}
-        </div>
+        {rows}
       </div>
 
     </div>

@@ -5,8 +5,8 @@
   z-index: 0;
   /* grid-gap:5px; */
 }
-.grid-container{
-  display:grid;
+.flex-container{
+  display:flex;
   background-color: rgb(214, 224, 231);
 }
 .c1{
@@ -16,28 +16,45 @@
   position: relative;
   z-index: 5;
 }
-.gc1{
-  grid-template-columns: 200px repeat(22, 200px) 210px;
+.fc1{
+  /* grid-template-columns: 200px repeat(22, 200px) 210px; */
   width:100vw;
   height:2.5vh;
-  grid-template-rows: 2.5vh;
+  /* grid-template-rows: 2.5vh; */
   overflow-x:hidden;
   overflow-y: visible;
 }
 
 .c2{
-  height:50vh;
+  height:92.5vh;
   margin-top:0vh;
+  overflow:scroll;
 }
 
-.gc2{
-  /* width:100vw; */
-  grid-template-columns: 200px repeat(23, 200px);
-  height:92.5vh;
-  overflow:scroll;
-  grid-template-rows: 400px repeat(1, 400px);
+.fc2{
+  height:400px;
+  /* overflow:scroll; */
 }
-.grid-item {
+.grid-item1 {
+  box-sizing: border-box;
+  background-image: linear-gradient(rgba(63, 63, 63, 0.8), rgba(139, 137, 137, 0.8) ) ;
+  height:100%;
+  color: aliceblue;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 20px;
+  min-width:200px;
+}
+.end{
+  width:210px
+}
+.grid-item2 {
+  box-sizing: border-box;
+  height: 400px;
+  min-width: 200px;
   background-color: rgba(241, 241, 241, 0.8);
   border: 1px solid rgba(0, 0, 0, 0.8);
   font-size: 30px;
@@ -47,26 +64,8 @@
   color: rgb(3, 135, 250);
   position: relative;
 }
-.grid-item2 {
-  background-image: linear-gradient(rgba(63, 63, 63, 0.8), rgba(139, 137, 137, 0.8) ) ;
-  color: aliceblue;
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  font-size: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 2rem
-}
+
 .now{
-  height: calc(95vh - 10px);
-  width:5px;
-  background-color: rgba(255, 166, 0, 0.562);
-  position: absolute;
-  top:0;
-  left:0px;
-  z-index: 11;
-}
-.now2{
   height: calc(92.5vh - 11px);
   width:5px;
   background-color: rgba(255, 166, 0, 0.562);
@@ -74,11 +73,21 @@
   top:0;
   z-index: 11;
 }
+.content{
+  height:100%;
+  background-color: rgb(163, 163, 241);
+  position: absolute;
+  top:0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 11;
+}
 /* width */
 ::-webkit-scrollbar {
   display: none;
 }
-.gc2::-webkit-scrollbar {
+.c2::-webkit-scrollbar {
   display: initial;
   width: 10px;
   height: 10px;
