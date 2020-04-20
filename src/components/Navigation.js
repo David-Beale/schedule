@@ -33,7 +33,7 @@ function Navigation (props) {
         </Link>
         <Link
           className="button"
-          to="/contact"
+          to="/submit"
         >
           <div>Nav3</div>
         </Link>
