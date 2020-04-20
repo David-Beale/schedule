@@ -4,6 +4,7 @@ import { AnimatedSwitch } from "react-router-transition";
 
 import Navigation from './components/Navigation';
 import Main from './components/Main';
+import EventForm from './components/EventForm';
 import './App.css';
 
 function App () {
@@ -17,6 +18,7 @@ function App () {
         className="switch-wrapper"
       >
         <Route exact path="/" component={Main} />
+        <Route exact path="/submit" component={EventForm} />
         {/* <Route path="/about" component={AboutPage} /> */}
         {/* <Route path="/contact" component={ContactPage} /> */}
         {/* <Route path="/projects" component={ProjectsPage} /> */}
