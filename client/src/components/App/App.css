@@ -1,3 +1,5 @@
+/* general css*/
+
 @import '~antd/dist/antd.css';
 body {
   margin: 0;
@@ -8,3 +10,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+/* App related css*/
+.App {
+  text-align: center;
+}

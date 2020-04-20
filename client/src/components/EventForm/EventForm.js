@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, DatePicker, InputNumber, Button, TimePicker, Upload } from 'antd';
+import { Form, Input, DatePicker, Button, TimePicker, Upload } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 const { TextArea } = Input;
 const { RangePicker } = TimePicker;
@@ -21,7 +21,7 @@ function EventForm() {
       description,
       image: imageUrl,
       date,
-      eventTime
+      eventTime,
     };
 
     //TODO: API call here
@@ -36,16 +36,16 @@ function EventForm() {
       setLoading(true);
       return;
     }
-  };
+  }
 
   const uploadButton = (
     <div>
       {loading ? <LoadingOutlined /> : <PlusOutlined />}
-      <div className="ant-upload-text">Upload</div>
+      <div className='ant-upload-text'>Upload</div>
     </div>
   );
 
-  const cloudinaryRequest = e => {
+  const cloudinaryRequest = (e) => {
     const formData = new FormData();
     formData.append('upload_preset', 'xv3k736w');
     formData.append('file', e.file);
@@ -54,13 +54,13 @@ function EventForm() {
       {
         method: 'POST',
         body: formData,
-      },
+      }
     )
-      .then(response => response.json())
-      .then(data => {
+      .then((response) => response.json())
+      .then((data) => {
         setImageUrl(data.url);
       })
-      .catch(error => {
+      .catch((error) => {
         console.error('Error:', error);
       });
   };
@@ -75,7 +75,7 @@ function EventForm() {
     >
       <h1 style={{ margin: '50px auto auto auto', paddingBottom: '3vh' }}>
         Create a new event
-          </h1>
+      </h1>
       <Form
         labelCol={{ span: 8 }}
         wrapperCol={{ span: 14 }}
@@ -83,57 +83,49 @@ function EventForm() {
         style={{ width: '60vw', height: '50vh' }}
         onFinish={submitForm}
       >
-        <Form.Item name="title" label="Title" rules={[{ required: true }]}>
+        <Form.Item name='title' label='Title' rules={[{ required: true }]}>
           <Input></Input>
         </Form.Item>
         <Form.Item
-          name="description"
-          label="Description"
+          name='description'
+          label='Description'
           rules={[{ required: true }]}
         >
           <TextArea autoSize={{ minRows: 4, maxRows: 7 }} />
         </Form.Item>
-        <Form.Item name="upload" label="Profile picture">
+        <Form.Item name='upload' label='Profile picture'>
           <Upload
-            name="avatar"
+            name='avatar'
             customRequest={cloudinaryRequest}
-            accept=".png, .jpg, .jpeg"
-            listType="picture-card"
-            className="avatar-uploader"
+            accept='.png, .jpg, .jpeg'
+            listType='picture-card'
+            className='avatar-uploader'
             showUploadList={false}
-            action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+            action='https://www.mocky.io/v2/5cc8019d300000980a055e76'
             onChange={uploadPicture}
           >
             {imageUrl ? (
-              <img src={imageUrl} alt="avatar" style={{ width: '100%' }} />
+              <img src={imageUrl} alt='avatar' style={{ width: '100%' }} />
             ) : (
-                uploadButton
-              )}
+              uploadButton
+            )}
           </Upload>
         </Form.Item>
 
-        <Form.Item
-          name="eventTime"
-          label="Date"
-          rules={[{ required: true }]}
-        >
+        <Form.Item name='eventTime' label='Date' rules={[{ required: true }]}>
           <DatePicker onOk={timeSelect} />
         </Form.Item>
-        <Form.Item
-          name="eventTime"
-          label="Time"
-          rules={[{ required: true }]}
-        >
+        <Form.Item name='eventTime' label='Time' rules={[{ required: true }]}>
           <RangePicker format='hh:mm' />
         </Form.Item>
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
-          <Button type="primary" htmlType="submit">
+          <Button type='primary' htmlType='submit'>
             Submit
           </Button>
         </Form.Item>
       </Form>
     </div>
-  )
+  );
 }
 
-export default EventForm;
+export { EventForm as default };
