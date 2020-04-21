@@ -92,6 +92,10 @@
   border: 1px solid black;
   color: rgb(63, 63, 63);
 }
+.content:hover{
+  border:3px solid rgb(64, 113, 248);
+  text-decoration: underline;
+}
 .content-title{
   font-size: 2.5rem;
   font-weight: 700;

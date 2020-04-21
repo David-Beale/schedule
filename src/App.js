@@ -19,7 +19,6 @@ function App () {
         <Route exact path="/" component={Main} />
         {/* <Route path="/about" component={AboutPage} /> */}
         {/* <Route path="/contact" component={ContactPage} /> */}
-        {/* <Route path="/projects" component={ProjectsPage} /> */}
       </AnimatedSwitch>
 
     </Router>
