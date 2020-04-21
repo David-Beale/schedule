@@ -1,9 +1,9 @@
-.navigation-container{
+.navigation-container {
   position: fixed;
   overflow: hidden;
   z-index: 10;
-  top:0;
-  width:100vw;
+  top: 0;
+  width: 100vw;
   max-height: 5vh;
   display: flex;
   flex-direction: row;
@@ -11,19 +11,19 @@
   justify-content: space-between;
   background-color: white;
 }
-.navigation-name{
+.navigation-name {
   font-size: 1.7rem;
-  color: #5d5d66
+  color: #5d5d66;
 }
-.navigation-name:hover{
+.navigation-name:hover {
   color: rgb(23, 101, 153);
 }
-.navigation-links-container{
+.navigation-links-container {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  margin:0 3rem;
+  margin: 0 3rem;
 }
 
 .button {
@@ -37,13 +37,13 @@
   cursor: pointer;
   transition: 0.5s;
 }
-.button:hover{
-  color: rgb(23, 101, 153);;
-  text-shadow: 0 0 3px #fff, 0 0 3px rgb(22, 180, 180);;
+.button:hover {
+  color: rgb(23, 101, 153);
+  text-shadow: 0 0 3px #fff, 0 0 3px rgb(22, 180, 180);
 }
-.icon{
+.icon {
   padding-top: 0.2rem;
-  max-width:1.5rem;
-  max-height:1.5rem;
-  padding-left: 1rem;;
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+  padding-left: 1rem;
 }
