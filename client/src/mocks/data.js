@@ -9,49 +9,49 @@ export default
 [
   {
     title: 'Show 1',
-    description: 'Cool show description',
+    description: 'Show description',
     image: event1,
-    date: new Date('2020-04-22'),
+    date: new Date("Apr 24, 2020 16:45:00"),
     time: [16, 45],
     length: [3, 15]
   },
   {
     title: 'Show 2',
-    description: 'Cool show description',
+    description: 'Show description',
     image: event2,
-    date: new Date('2020-04-22'),
+    date: new Date("Apr 24, 2020 15:45:00"),
     time: [15, 45],
     length: [1, 0]
   },
   {
     title: 'Show 3',
-    description: 'Cool show description',
+    description: 'Show description',
     image: event3,
-    date: new Date('2020-04-22'),
-    time: [15, 45],
+    date: new Date("Apr 24, 2020 16:30:00"),
+    time: [16, 30],
     length: [1, 0]
   },
   {
     title: 'Show 4',
-    description: 'Cool show description',
+    description: 'Show description',
     image: event4,
-    date: new Date('2020-04-22'),
+    date: new Date("Apr 24, 2020 15:45:00"),
     time: [15, 45],
     length: [1, 0]
   },
   {
     title: 'Show 5',
-    description: 'Cool show description',
+    description: 'Show description',
     image: event5,
-    date: new Date('2020-04-22'),
+    date: new Date("Apr 24, 2020 15:45:00"),
     time: [15, 45],
     length: [1, 0]
   },
   {
     title: 'Show 6',
-    description: 'Cool show description',
+    description: 'Show description',
     image: event6,
-    date: new Date('2020-04-22'),
+    date: new Date("Apr 24, 2020 12:45:00"),
     time: [12, 45],
     length: [1, 0]
   },

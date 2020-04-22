@@ -1,0 +1,19 @@
+.countdown-message{
+  font-family: 'Palanquin', sans-serif;
+  color: #f05537;
+  font-size: 1rem;;
+  font-weight: 700;
+  margin: 1rem 0;
+}
+.countdown-timer{
+  font-family: 'Palanquin', sans-serif;
+  color: #000000;
+  font-size: 1.8rem;;
+  font-weight: 700;
+}
+.countdown-inner-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;  
+}
