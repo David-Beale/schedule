@@ -7,7 +7,7 @@ function Card (props) {
   const [flipped, setFlipped] = useState(false)
   const date = `${props.info.time[0]}:${props.info.time[1]}`
   const handleClick = () => {
-      setFlipped(!flipped)
+    setFlipped(!flipped)
   }
   const linkClick = (e) => {
     e.stopPropagation();
@@ -33,11 +33,11 @@ function Card (props) {
             {props.info.description}
           </div>
           <div className='countdown-container'>
-            {/* {flipped && */}
+            {flipped &&
               <Countdown
                 info={props.info}
               />
-            {/* } */}
+            }
           </div>
           <a onClick={linkClick} className='event-link'>Click here</a>
         </div>

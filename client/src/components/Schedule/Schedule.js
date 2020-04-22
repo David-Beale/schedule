@@ -158,7 +158,6 @@ function Schedule (props) {
           contentLengthHours * unitWidth +
           (contentLengthMinutes / 60) * unitWidth
           }px`;
-          console.log(startTime, endTime, hours+minutes/60)
         if (startTime < hours + (minutes / 60) && endTime > hours + (minutes / 60)) {
           newContent.style.background = 'linear-gradient(to bottom, #f7f7f7 0%,#f3dec7 70%,#faac87f6 100%) '
         }
