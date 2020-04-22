@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import data from '../../mocks/data';
 
-function AboutPage(props) {
+function Schedule (props) {
   const [rowCounter, setRowCounter] = useState(1);
   const [rows, setRows] = useState([]);
   const [rowStorage, setRowStorage] = useState([Array(96)]);
@@ -43,8 +43,8 @@ function AboutPage(props) {
     setRows(tempRows);
   }, []);
 
-  const unitWidth = 200;
-  function timeToPosition(minutes, hours) {
+  const unitWidth = 350;
+  function timeToPosition (minutes, hours) {
     return unitWidth * hours + unitWidth * (minutes / 60);
   }
 
@@ -109,6 +109,8 @@ function AboutPage(props) {
         const contentMins = data[i].time[1];
         const contentLengthHours = data[i].length[0];
         const contentLengthMinutes = data[i].length[1];
+        const startTime = contentHours + contentMins / 60
+        const endTime = startTime + contentLengthHours + contentLengthMinutes / 60
         const startBlock = contentHours * 4 + contentMins / 15;
         const blockLength = contentLengthHours * 4 + contentLengthMinutes / 15;
         let spaceCheck;
@@ -148,7 +150,6 @@ function AboutPage(props) {
           localRowCounter++;
           selectedRow = localRowCounter - 1;
         }
-
         const newContent = document.createElement('div');
         newContent.className = `content`;
         newContent.id = `content${i}`;
@@ -156,19 +157,31 @@ function AboutPage(props) {
         newContent.style.width = `${
           contentLengthHours * unitWidth +
           (contentLengthMinutes / 60) * unitWidth
-        }px`;
+          }px`;
+          console.log(startTime, endTime, hours+minutes/60)
+        if (startTime < hours + (minutes / 60) && endTime > hours + (minutes / 60)) {
+          newContent.style.background = 'linear-gradient(to bottom, #f7f7f7 0%,#f3dec7 70%,#faac87f6 100%) '
+        }
         const newTitle = document.createElement('div');
         newTitle.className = `content-title`;
         newTitle.innerHTML = data[i].title;
         const newDescription = document.createElement('div');
         newDescription.className = `content-description`;
         newDescription.innerHTML = data[i].description;
+        const newImageContainer = document.createElement('div');
+        newImageContainer.className = `content-image-container`;
+        const newImage = document.createElement('img');
+        newImage.className = `content-image`;
+        newImageContainer.appendChild(newImage);
+        newImage.src = data[i].image;
+        newContent.appendChild(newImageContainer);
         newContent.appendChild(newTitle);
         newContent.appendChild(newDescription);
         document
           .querySelector(`#row${selectedRow} #time${contentHours}`)
           .appendChild(newContent);
       }
+
       setRowCounter(localRowCounter);
       ////
     }
@@ -190,4 +203,4 @@ function AboutPage(props) {
   );
 }
 
-export { AboutPage as default };
+export { Schedule as default };

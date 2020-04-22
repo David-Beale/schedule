@@ -5,20 +5,20 @@ function Navigation(props) {
   return (
     <div className='navigation-container'>
       <Link to='/' className='button'>
-        <div className='navigation-name'>Logo</div>
+        <div className='navigation-name'>Performing From Home</div>
       </Link>
       <div className='navigation-links-container'>
         <Link className='button' to='/'>
           <div>Home</div>
         </Link>
-        <Link className='button' to='/projects'>
-          <div>Nav1</div>
+        <Link className='button' to='/schedule'>
+          <div>Schedule</div>
         </Link>
-        <Link className='button' to='/about'>
+        <Link className='button' to='/'>
           <div>Nav2</div>
         </Link>
         <Link className='button' to='/submit'>
-          <div>Nav3</div>
+          <div>Create Event</div>
         </Link>
       </div>
     </div>
