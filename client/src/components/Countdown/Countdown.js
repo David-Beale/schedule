@@ -28,7 +28,14 @@ function Countdown (props) {
 
 
       if (distance < 0) {
-        setMessage(`Event has already started`)
+        setMessage(
+          <div className='countdown-inner-container'>
+            <div className='countdown-message'>
+              Event has already started
+            </div>
+          </div>
+
+        )
         clearInterval(interval);
       }
     }, 1000);
