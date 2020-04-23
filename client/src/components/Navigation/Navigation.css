@@ -1,0 +1,45 @@
+.navigation-container {
+  position: fixed;
+  overflow: hidden;
+  z-index: 10;
+  top: 0;
+  width: 100vw;
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 1px 1px 8px 1px rgba(189, 189, 189, 0.75);
+}
+.navigation-name {
+  font-family: 'Montserrat', sans-serif;
+  color: #f05537;
+  font-size: 1.7rem;;
+  font-weight: 600;
+  padding-left: 2rem;
+}
+.navigation-links-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3rem;
+}
+
+.button {
+  color: #111111;
+  font-size: 1.2rem;
+  margin: 0.2vh;
+  padding: 0.3rem;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.icon {
+  padding-top: 0.2rem;
+  max-width: 1.5rem;
+  max-height: 1.5rem;
+  padding-left: 1rem;
+}

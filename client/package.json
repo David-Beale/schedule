@@ -17,6 +17,9 @@
     "react-scripts": "3.4.1",
     "redux": "^4.0.5",
     "redux-thunk": "^2.3.0"
+    "antd": "^4.1.4",
+    "moment": "^2.24.0",
+    "react-moment": "^0.9.7",
   },
   "scripts": {
     "start": "react-scripts start",
