@@ -68,7 +68,6 @@ export function StitchAuthProvider(props) {
         case 'anonymous':
           return loginAnonymous();
         case 'google':
-          console.log('hoohle!');
           return loginGoogle();
         // eslint-disable-next-line no-empty
         default: {

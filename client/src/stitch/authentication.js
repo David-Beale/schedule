@@ -13,13 +13,11 @@ export function removeAuthenticationListener(listener) {
 }
 
 export async function loginGoogle() {
-  console.log('hi');
   return await app.auth.loginWithRedirect(new GoogleRedirectCredential());
 }
 
 export async function handleOAuthRedirects() {
   if (app.auth.hasRedirectResult()) {
-    console.log('hi2');
     return app.auth.handleRedirectResult();
   }
 }
