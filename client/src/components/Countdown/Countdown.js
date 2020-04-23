@@ -20,7 +20,7 @@ function Countdown (props) {
               Event is starting in
            </div>
             <div className='countdown-timer'>
-              {days} {days > 1 ? 'days' : 'day'} {hours}h:{mins}m:{seconds}s
+              {days > 0 ? `${days} ${days > 1 ? 'days' : 'day'} ` : ''} {hours}h:{mins}m:{seconds}s
             </div>
           </div>
         )
@@ -34,7 +34,7 @@ function Countdown (props) {
     }, 1000);
     return () => clearInterval(interval);
   }, []);
-  
+
   return (
     <div>
       {message}
