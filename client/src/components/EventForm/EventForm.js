@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form, Input, DatePicker, Button, TimePicker, Upload } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 import { addEvent } from '../../redux/actions';
-import { useStitchAuth } from '../StitchAuth';
+import { useStitchAuth } from '../StitchAuth/StitchAuth';
 import { useDispatch } from 'react-redux';
 const { TextArea } = Input;
 const { RangePicker } = TimePicker;
@@ -21,15 +21,17 @@ function EventForm() {
 
   function submitForm(values) {
     const { title, description, eventTime, artistName, streamUrl } = values;
-    console.log(eventTime);
     const formData = {
       artistName,
       title,
       description,
       streamUrl,
       image: imageUrl,
-      date
-      // eventTime
+      date,
+      eventTime: [
+        parseInt(eventTime[0].format('HH')),
+        parseInt(eventTime[1].format('HH'))
+      ]
     };
     dispatch(addEvent(formData, currentUser.id));
   }
@@ -60,7 +62,7 @@ function EventForm() {
       `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDNAME}/image/upload`,
       {
         method: 'POST',
-        body: formData,
+        body: formData
       }
     )
       .then((response) => response.json())
@@ -137,7 +139,7 @@ function EventForm() {
           <DatePicker onOk={timeSelect} />
         </Form.Item>
         <Form.Item name="eventTime" label="Time" rules={[{ required: true }]}>
-          <RangePicker format="hh:mm" />
+          <RangePicker format="HH:mm" />
         </Form.Item>
         <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
           <Button type="primary" htmlType="submit">
