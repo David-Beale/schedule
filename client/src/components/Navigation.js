@@ -15,22 +15,28 @@ function Navigation(props) {
         <Link className="button" to="/">
           <div>Home</div>
         </Link>
-        <Link className="button" to="/projects">
-          <div>Nav1</div>
-        </Link>
+        {isLoggedIn && (
+          <Link className="button" to="/projects">
+            <div>Nav1</div>
+          </Link>
+        )}
+        {isLoggedIn && (
+          <Link className="button" to="/form">
+            <div>Create Event</div>
+          </Link>
+        )}
         <Link className="button" to="/about">
           <div>Nav2</div>
         </Link>
-        <Link className="button" to="/contact">
-          <div>Nav3</div>
-        </Link>
-        <Link className="button" to="/login">
-          {isLoggedIn ? (
+        {isLoggedIn ? (
+          <Link className="button" to="/logout">
             <div onClick={actions.handleLogout}>Logout</div>
-          ) : (
+          </Link>
+        ) : (
+          <Link className="button" to="/login">
             <div>Login</div>
-          )}
-        </Link>
+          </Link>
+        )}
       </div>
     </div>
   );

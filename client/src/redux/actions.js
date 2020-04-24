@@ -5,17 +5,19 @@ export const loadEvents = () => async (dispatch) => {
   dispatch({ type: 'getEvents', payload: { eventList } });
 };
 export const addEvent = (eventData, userId) => async (dispatch) => {
-  const event = { eventData, owner_id: userId };
+
+  const event = { createdAt: new Date(), eventData, user_id: userId };
   const result = await events.insertOne(event);
   dispatch({
     type: 'postEvent',
-    payload: { ...event, _id: result.insertedId }
+    payload: { ...result }
   });
 };
 export const removeEvent = (eventId) => async (dispatch) => {
   await events.deleteOne({ _id: eventId });
   dispatch({ type: 'deleteEvent', payload: { id: eventId } });
 };
+
 export const updateEventStatus = (eventId) => async (dispatch) => {
   const event = events.find((t) => t._id === eventId);
   await events.updateOne(
