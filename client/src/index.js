@@ -1,10 +1,11 @@
+import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { StitchAuthProvider } from './components/StitchAuth/StitchAuth';
 import { Provider } from 'react-redux';
 import configureStore from './redux/store';
 import './index.css';
-import App from './components/App';
+import App from './App';
 
 const store = configureStore();
 
@@ -18,4 +19,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-

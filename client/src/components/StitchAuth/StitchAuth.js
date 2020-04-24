@@ -37,6 +37,7 @@ export function StitchAuthProvider(props) {
     const authListener = {
       onUserLoggedIn: (auth, loggedInUser) => {
         if (loggedInUser) {
+          console.log(loggedInUser);
           setAuthState((authState) => ({
             ...authState,
             isLoggedIn: true,
@@ -68,7 +69,6 @@ export function StitchAuthProvider(props) {
         case 'anonymous':
           return loginAnonymous();
         case 'google':
-          console.log('hoohle!');
           return loginGoogle();
         // eslint-disable-next-line no-empty
         default: {
