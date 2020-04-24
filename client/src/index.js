@@ -1,3 +1,4 @@
+import './App.css';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { StitchAuthProvider } from './components/StitchAuth/StitchAuth';
@@ -18,4 +19,3 @@ ReactDOM.render(
   </React.StrictMode>,
   document.getElementById('root')
 );
-
