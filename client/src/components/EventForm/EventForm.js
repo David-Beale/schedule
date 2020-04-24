@@ -60,15 +60,11 @@ function EventForm() {
       `https://api.cloudinary.com/v1_1/${process.env.REACT_APP_CLOUDNAME}/image/upload`,
       {
         method: 'POST',
-        body: formData
+        body: formData,
       }
     )
-      .then((response) => {
-        console.log(response);
-        return response.json();
-      })
+      .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         setImageUrl(data.url);
       })
       .catch((error) => {
