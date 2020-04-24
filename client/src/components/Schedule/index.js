@@ -1,4 +1,4 @@
 import Schedule from './Schedule';
-import './schedule.css';
+import './Schedule.css';
 
 export { Schedule as default };
