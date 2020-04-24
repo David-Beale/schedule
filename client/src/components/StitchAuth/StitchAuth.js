@@ -15,7 +15,7 @@ import {
   addAuthenticationListener,
   removeAuthenticationListener,
   handleOAuthRedirects
-} from './../stitch/authentication';
+} from '../../stitch/authentication';
 
 const StitchAuthContext = createContext();
 

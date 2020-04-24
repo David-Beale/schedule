@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { useStitchAuth } from './StitchAuth';
+import { useStitchAuth } from '../StitchAuth/StitchAuth';
 
 Login.propTypes = {};
 export default function Login() {
@@ -32,3 +32,4 @@ export default function Login() {
     </div>
   );
 }
+

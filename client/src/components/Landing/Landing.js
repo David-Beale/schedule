@@ -16,7 +16,7 @@ function Landing (props) {
               <h2>Performing From Home</h2>
               <h3 className='title-sub'>is here to help artists who have been affected by the Coronavirus</h3>
             </div>
-            <div className='support'>Show your support but signing up to your favorite performers' Patreon </div>
+            <div className='support'>Show your support by signing up to your favorite performers' Patreon </div>
             <div className='link-container'>
               <a href="#events" className='title-sub schedule-link main-button' to='/'>Browse Events</a>
               <Link className='title-sub schedule-link main-button' to='/schedule'>Whats on now</Link>
