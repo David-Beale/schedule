@@ -12,4 +12,5 @@ const events = mongoClient
   .db(process.env.REACT_APP_MONGODB_DATABASE_NAME)
   .collection(process.env.REACT_APP_MONGODB_EVENTS_COLLECTION);
 
+
 export { events };

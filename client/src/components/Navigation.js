@@ -21,12 +21,12 @@ function Navigation(props) {
           </Link>
         )}
         {isLoggedIn && (
-          <Link className="button" to="/about">
-            <div>Nav2</div>
+          <Link className="button" to="/form">
+            <div>Create Event</div>
           </Link>
         )}
-        <Link className="button" to="/contact">
-          <div>Nav3</div>
+        <Link className="button" to="/about">
+          <div>Nav2</div>
         </Link>
         {isLoggedIn ? (
           <Link className="button" to="/logout">
