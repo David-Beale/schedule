@@ -65,6 +65,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  text-align: center;
   width:150px;
   color: aliceblue;
   font-size: 1rem;
