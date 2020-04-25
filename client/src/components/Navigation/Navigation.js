@@ -5,16 +5,25 @@ import './Navigation.css';
 
 function Navigation(props) {
   const { isLoggedIn, actions } = useStitchAuth();
+  const toggleMenu = () => {
+    const x = document.getElementById('myTopnav');
+    if (x.className === "navigation-container") {
+      x.className += " responsive";
+    } else {
+      x.className = "navigation-container";
+    }
+  }
+
   return (
-    <div className="navigation-container">
-      <Link to="/" className="button">
+    <div id='myTopnav' className="navigation-container">
+      <Link to="/" id='logo' className="button">
         <div className="navigation-name">Logo</div>
       </Link>
       <div className="navigation-links-container">
-        <Link className="button" to="/">
+        <Link className="button menu" onClick={toggleMenu} to="/">
           <div>Home</div>
         </Link>
-        <Link className="button" to="/schedule">
+        <Link className="button menu" onClick={toggleMenu} to="/schedule">
           <div>Schedule</div>
         </Link>
         {isLoggedIn && (
@@ -28,7 +37,7 @@ function Navigation(props) {
           </Link>
         )}
         {isLoggedIn && (
-          <Link className="button" to="/form">
+          <Link className="button menu" onClick={toggleMenu} to="/form">
             <div>Create Event</div>
           </Link>
         )}
@@ -36,14 +45,15 @@ function Navigation(props) {
           <div>About</div>
         </Link>
         {isLoggedIn ? (
-          <Link className="button" to="/logout">
+          <Link className="button menu" onClick={toggleMenu} to="/logout">
             <div onClick={actions.handleLogout}>Logout</div>
           </Link>
         ) : (
-            <Link className="button" to="/login">
+            <Link className="button menu" onClick={toggleMenu} to="/login">
               <div>Login</div>
             </Link>
           )}
+        <a className="icon" onClick={toggleMenu}>&#9776;</a>
       </div>
     </div>
   );

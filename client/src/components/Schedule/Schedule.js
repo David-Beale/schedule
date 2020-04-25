@@ -6,7 +6,6 @@ import data from '../../mocks/data';
 function Schedule (props) {
   const [rowCounter, setRowCounter] = useState(1);
   const [rows, setRows] = useState([]);
-  const [rowStorage, setRowStorage] = useState([Array(96)]);
   const [hoursArray, setHoursArray] = useState([]);
   const [data, setData] = useState([])
   const dataStart = useSelector(({ eventsReducer }) => eventsReducer.events);
@@ -16,8 +15,7 @@ function Schedule (props) {
 
   //import data store
   useEffect(() => {
-    console.log(dataStart)
-    if (dataStart.length>0) {
+    if (dataStart.length > 0) {
       let array = dataStart.map(event => event.eventData)
       setData(array)
     }
@@ -58,7 +56,7 @@ function Schedule (props) {
     setRows(tempRows);
   }, []);
 
-  const unitWidth = 350;
+  const unitWidth = 175;
 
 
   useEffect(() => {
@@ -117,43 +115,49 @@ function Schedule (props) {
     }
   }, [hoursArray]);
   useEffect(() => {
-    if (hoursArray.length > 0 && data.length>0) {
+    console.log(data)
+    if (hoursArray.length > 0 && data.length > 0) {
       // Database info processing
       let localRowCounter = rowCounter;
+      let localRowStorage = [Array(96)];
       for (let i = 0; i < data.length; i++) {
-        let localRowStorage = [...rowStorage];
         const contentHours = +data[i].date.getHours();
         const contentMins = +data[i].date.getMinutes();
-        const contentLength = (data[i].endTime.getTime() - data[i].date.getTime()) / 1000 / 60
-        console.log(contentLength)
+        let contentLength = (data[i].endTime.getTime() - data[i].date.getTime()) / 1000 / 60
+        if (contentLength === 0) continue;
         const startTime = contentHours + contentMins / 60
-        const startBlock = contentHours * 4 + contentMins / 15;
-        const endTime = startTime + contentLength / 60
-        const blockLength = contentLength / 15;
+        const startBlock = Math.floor(contentHours * 4 + contentMins / 15);
+        let endTime = startTime + contentLength / 60
+        let blockEnd = Math.ceil((contentHours * 4 + contentMins / 15) + (contentLength / 15))
+        console.log(blockEnd, startTime, contentLength)
+        if(blockEnd > 96){
+          blockEnd = 96;
+          contentLength = 1440-startTime*60;
+          endTime = 1440;
+        }
+        console.log(blockEnd, startTime, contentLength)
         let spaceCheck;
         let selectedRow;
         for (let i = 0; i < localRowStorage.length; i++) {
           spaceCheck = true;
-          for (let j = startBlock; j < startBlock + blockLength; j++) {
+          for (let j = startBlock; j < blockEnd; j++) {
             if (localRowStorage[i][j] === 1) {
               spaceCheck = false;
-              j = startBlock + blockLength;
+              j = blockEnd;
             } else {
               localRowStorage[i][j] = 1;
             }
           }
           if (spaceCheck) {
             selectedRow = i;
-            setRowStorage(localRowStorage);
             i = localRowStorage.length;
           }
         }
         if (!spaceCheck) {
           localRowStorage.push(Array(96));
-          for (let j = startBlock; j < startBlock + blockLength; j++) {
+          for (let j = startBlock; j < blockEnd; j++) {
             localRowStorage[localRowStorage.length - 1][j] = 1;
           }
-          setRowStorage(localRowStorage);
           const newRow = document.createElement('div');
           newRow.id = `row${localRowCounter}`;
           newRow.className = 'flex-container fc2';
@@ -171,9 +175,8 @@ function Schedule (props) {
         newContent.className = `content`;
         newContent.id = `content${i}`;
         newContent.style.left = `${(contentMins / 60) * 100}%`;
-        newContent.style.width = `${
-          (contentLength / 60) * unitWidth
-          }px`;
+        const width = (contentLength / 60) * unitWidth
+        newContent.style.width = `${width}px`;
         if (startTime < hours + (minutes / 60) && endTime > hours + (minutes / 60)) {
           newContent.style.background = 'linear-gradient(to bottom, #f7f7f7 0%,#f3dec7 70%,#faac87f6 100%) '
         }
@@ -185,6 +188,9 @@ function Schedule (props) {
         newDescription.innerHTML = data[i].description;
         const newImageContainer = document.createElement('div');
         newImageContainer.className = `content-image-container`;
+        if (width < 175) {
+          newImageContainer.style.width = `${width}px`;
+        }
         const newImage = document.createElement('img');
         newImage.className = `content-image`;
         newImageContainer.appendChild(newImage);
@@ -195,6 +201,7 @@ function Schedule (props) {
         document
           .querySelector(`#row${selectedRow} #time${contentHours}`)
           .appendChild(newContent);
+
       }
       setRowCounter(localRowCounter);
     }

@@ -8,8 +8,8 @@ import React, {
 
 import {
   hasLoggedInUser,
-  loginAnonymous,
   loginGoogle,
+  loginFacebook,
   logoutCurrentUser,
   getCurrentUser,
   addAuthenticationListener,
@@ -66,8 +66,8 @@ export function StitchAuthProvider(props) {
   const handleLogin = async (provider) => {
     if (!authState.isLoggedIn) {
       switch (provider) {
-        case 'anonymous':
-          return loginAnonymous();
+        case 'facebook':
+          return loginFacebook();
         case 'google':
           return loginGoogle();
         // eslint-disable-next-line no-empty
