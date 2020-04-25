@@ -1,6 +1,6 @@
 import {
-  AnonymousCredential,
-  GoogleRedirectCredential
+  GoogleRedirectCredential,
+  FacebookRedirectCredential
 } from 'mongodb-stitch-browser-sdk';
 import { app } from './app.js';
 
@@ -16,15 +16,14 @@ export async function loginGoogle() {
   return await app.auth.loginWithRedirect(new GoogleRedirectCredential());
 }
 
+export async function loginFacebook() {
+  return await app.auth.loginWithRedirect(new FacebookRedirectCredential());
+}
+
 export async function handleOAuthRedirects() {
   if (app.auth.hasRedirectResult()) {
     return app.auth.handleRedirectResult();
   }
-}
-
-export function loginAnonymous() {
-  // Allow users to log in anonymously
-  return app.auth.loginWithCredential(new AnonymousCredential());
 }
 
 export function hasLoggedInUser() {
