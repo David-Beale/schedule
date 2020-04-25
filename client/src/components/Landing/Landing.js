@@ -25,7 +25,6 @@ function Landing (props) {
   }, [dataStart])
 
   useEffect(() => {
-    console.log(dataOriginal)
     if (filterValue.length > 0) {
       let arrayOfWords = filterValue.toLowerCase()
       let newData = dataOriginal.filter(event => {
@@ -33,7 +32,11 @@ function Landing (props) {
         return title.includes(arrayOfWords)
       })
       setData(newData)
-    } else setData(dataOriginal)
+    } else {
+      if (dataOriginal.length > 0) {
+        setData(dataOriginal)
+      }
+    }
   }, [filterValue])
 
   return (
