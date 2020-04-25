@@ -1,27 +1,42 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import * as _ from 'underscore';
+import { useSelector } from 'react-redux';
 
-import dataOriginal from '../../mocks/data';
 import mainImage from '../../assets/images/main.jpg'
 import Card from '../Card'
 
 function Landing (props) {
+
   const [filterValue, setFilterValue] = useState('')
   const [data, setData] = useState([])
+  const [dataOriginal, setDataOriginal] = useState([])
+  const dataStart = useSelector(({ eventsReducer }) => eventsReducer.events);
+
   const handleChange = (e) => {
     setFilterValue(e.target.value)
   }
   useEffect(() => {
-    console.log(filterValue)
+    if (dataStart) {
+      let array = Object.values(dataStart).map(event => event.eventData)
+      setData(array)
+      setDataOriginal(array)
+    }
+  }, [dataStart])
+
+  useEffect(() => {
     if (filterValue.length > 0) {
       let arrayOfWords = filterValue.toLowerCase()
-      let newData = dataOriginal.filter(event=>{
+      let newData = dataOriginal.filter(event => {
         let title = event.title.toLowerCase()
         return title.includes(arrayOfWords)
       })
       setData(newData)
-    } else setData(dataOriginal)
+    } else {
+      if (dataOriginal.length > 0) {
+        setData(dataOriginal)
+      }
+    }
   }, [filterValue])
 
   return (

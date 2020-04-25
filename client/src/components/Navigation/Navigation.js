@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useStitchAuth } from '../StitchAuth/StitchAuth';
 import './Navigation.css';
 
-function Navigation(props) {
+function Navigation (props) {
   const { isLoggedIn, actions } = useStitchAuth();
   return (
     <div className="navigation-container">
@@ -13,6 +13,9 @@ function Navigation(props) {
       <div className="navigation-links-container">
         <Link className="button" to="/">
           <div>Home</div>
+        </Link>
+        <Link className="button" to="/schedule">
+          <div>Schedule</div>
         </Link>
         {isLoggedIn && (
           <Link className="button" to="/projects">
@@ -32,10 +35,10 @@ function Navigation(props) {
             <div onClick={actions.handleLogout}>Logout</div>
           </Link>
         ) : (
-          <Link className="button" to="/login">
-            <div>Login</div>
-          </Link>
-        )}
+            <Link className="button" to="/login">
+              <div>Login</div>
+            </Link>
+          )}
       </div>
     </div>
   );

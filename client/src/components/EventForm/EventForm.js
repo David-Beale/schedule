@@ -13,7 +13,6 @@ function EventForm() {
   const { currentUser } = useStitchAuth();
   const [loading, setLoading] = useState(false);
   const [imageUrl, setImageUrl] = useState('');
-  const [date, setDate] = useState(new Date());
   const [submitted, setSubmitted] = useState(false);
 
   const layout = {
@@ -22,25 +21,17 @@ function EventForm() {
   };
 
   function submitForm(values) {
-    console.log('here')
-    const { title, description, eventTime, artistName, streamUrl } = values;
+    const { title, description, eventTime, eventDate, artistName, streamUrl } = values;
     const formData = {
       artistName,
       title,
       description,
       streamUrl,
       image: imageUrl,
-      date,
-      eventTime: [
-        parseInt(eventTime[0].format('HH')),
-        parseInt(eventTime[1].format('HH'))
-      ]
+      date: new Date(eventDate.format('MMMM D, YYYY ') + eventTime[0].format('HH:mm') + ':00'),
+      endTime: new Date(eventDate.format('MMMM D, YYYY ') + eventTime[1].format('HH:mm') + ':00'),
     };
     dispatch(addEvent(formData, currentUser.id));
-  }
-
-  function timeSelect(value) {
-    setDate(value._d);
   }
 
   function uploadPicture(info) {
