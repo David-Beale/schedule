@@ -29,7 +29,8 @@ function Landing (props) {
       let arrayOfWords = filterValue.toLowerCase()
       let newData = dataOriginal.filter(event => {
         let title = event.title.toLowerCase()
-        return title.includes(arrayOfWords)
+        let artist = event.artistName.toLowerCase()
+        return title.includes(arrayOfWords) || artist.includes(arrayOfWords)
       })
       setData(newData)
     } else {
