@@ -10,7 +10,7 @@ const eventsReducer = (
     case 'getEvents': {
       return {
         ...state,
-        events: [...state.events] || []
+        events: [...payload.eventList] || []
       };
     }
     case 'postEvent': {
