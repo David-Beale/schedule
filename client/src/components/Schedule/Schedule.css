@@ -141,3 +141,12 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+@media screen and (max-width: 750px) {
+  .c2::-webkit-scrollbar {
+    display: none;
+  }
+  .c1{
+    margin-top:2.9rem;
+  }
+}
