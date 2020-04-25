@@ -14,7 +14,6 @@ function Card(props) {
     setModalVisible(!modalVisible);
   }
   
-  console.log(props)
   return (
     <div>
       <div className='flip-card'>
@@ -48,7 +47,8 @@ function Card(props) {
         </div>
 
       </div>
-      <EventModal visible={modalVisible} toggleModal={toggleModal} />
+      modalVisible ? 
+      <EventModal visible={modalVisible} toggleModal={toggleModal} info={props.info} /> : null;
     </div>
   );
 }
