@@ -20,7 +20,7 @@ function EventForm() {
     wrapperCol: { span: 14 }
   };
 
-  function submitForm(values) {
+  async function submitForm(values) {
     const { title, description, eventTime, eventDate, artistName, streamUrl } = values;
     const formData = {
       artistName,
@@ -31,7 +31,10 @@ function EventForm() {
       date: new Date(eventDate.format('MMMM D, YYYY ') + eventTime[0].format('HH:mm') + ':00'),
       endTime: new Date(eventDate.format('MMMM D, YYYY ') + eventTime[1].format('HH:mm') + ':00'),
     };
-    dispatch(addEvent(formData, currentUser.id));
+
+      dispatch(addEvent(formData, currentUser.id));
+      setSubmitted(true);
+
   }
 
   function uploadPicture(info) {
@@ -137,7 +140,7 @@ function EventForm() {
           </Form.Item>
 
           <Form.Item name="eventDate" label="Date" rules={[{ required: true, message: 'Please choose a date for the event' }]}>
-            <DatePicker onOk={timeSelect} />
+            <DatePicker />
           </Form.Item>
           <Form.Item name="eventTime" label="Time" rules={[{ required: true, message: 'Please choose a time range for the event' }]}>
             <RangePicker format="HH:mm" />
