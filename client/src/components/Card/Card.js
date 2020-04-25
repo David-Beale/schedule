@@ -17,6 +17,7 @@ function Card (props) {
           <div className='image-container'>
             <img src={props.info.image} className='card-image' />
           </div>
+          <div className='card-artist'>{props.info.artistName}</div>
           <div className='card-time'><Moment format="ddd Do MMM, HH:mm">{props.info.date}</Moment></div>
           <div className='card-title'>
             {props.info.title}

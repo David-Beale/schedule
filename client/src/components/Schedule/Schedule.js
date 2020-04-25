@@ -16,8 +16,7 @@ function Schedule (props) {
 
   //import data store
   useEffect(() => {
-    console.log(dataStart)
-    if (dataStart.length>0) {
+    if (dataStart.length > 0) {
       let array = dataStart.map(event => event.eventData)
       setData(array)
     }
@@ -117,7 +116,7 @@ function Schedule (props) {
     }
   }, [hoursArray]);
   useEffect(() => {
-    if (hoursArray.length > 0 && data.length>0) {
+    if (hoursArray.length > 0 && data.length > 0) {
       // Database info processing
       let localRowCounter = rowCounter;
       for (let i = 0; i < data.length; i++) {
@@ -125,7 +124,6 @@ function Schedule (props) {
         const contentHours = +data[i].date.getHours();
         const contentMins = +data[i].date.getMinutes();
         const contentLength = (data[i].endTime.getTime() - data[i].date.getTime()) / 1000 / 60
-        console.log(contentLength)
         const startTime = contentHours + contentMins / 60
         const startBlock = contentHours * 4 + contentMins / 15;
         const endTime = startTime + contentLength / 60
@@ -149,6 +147,7 @@ function Schedule (props) {
           }
         }
         if (!spaceCheck) {
+          console.log('space check fail')
           localRowStorage.push(Array(96));
           for (let j = startBlock; j < startBlock + blockLength; j++) {
             localRowStorage[localRowStorage.length - 1][j] = 1;
@@ -195,6 +194,9 @@ function Schedule (props) {
         document
           .querySelector(`#row${selectedRow} #time${contentHours}`)
           .appendChild(newContent);
+
+        console.log(startTime, contentLength, selectedRow)
+        console.log(rowStorage)
       }
       setRowCounter(localRowCounter);
     }

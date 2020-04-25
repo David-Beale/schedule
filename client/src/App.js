@@ -13,16 +13,12 @@ import { useStitchAuth } from './components/StitchAuth/StitchAuth';
 import LogoutScreen from './components/LogoutScreen/LogoutScreen';
 import About from './components/About/About';
 
-function App() {
+function App () {
   const { isLoggedIn } = useStitchAuth();
-  console.log(isLoggedIn)
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    // if(isLoggedIn){
-    //   console.log('load')
-      dispatch(loadEvents());
-    // }
+    dispatch(loadEvents());
   }, []);
 
   return (
@@ -37,8 +33,8 @@ function App() {
         {isLoggedIn ? (
           <Redirect from="/login" to="/" component={Landing} />
         ) : (
-          <Route path="/login" component={Login} />
-        )}
+            <Route path="/login" component={Login} />
+          )}
         <Route exact path="/" component={Landing} />
         <Route exact path="/logout" component={LogoutScreen}></Route>
         <Route exact path="/schedule" component={Schedule} />
