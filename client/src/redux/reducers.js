@@ -13,7 +13,7 @@ const eventsReducer = (
       };
       return {
         ...state,
-        events: Object.values(events) || []
+        events: [...payload.eventList] || []
       };
     }
     case 'postEvent': {
