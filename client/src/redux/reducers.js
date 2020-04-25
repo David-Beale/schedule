@@ -13,7 +13,7 @@ const eventsReducer = (
       };
       return {
         ...state,
-        events: events || []
+        events: Object.values(events) || []
       };
     }
     case 'postEvent': {

@@ -18,7 +18,7 @@ function Landing (props) {
   }
   useEffect(() => {
     if (dataStart) {
-      let array = Object.values(dataStart).map(event => event.eventData)
+      let array = dataStart.map(event => event.eventData)
       setData(array)
       setDataOriginal(array)
     }
