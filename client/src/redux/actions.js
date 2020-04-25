@@ -1,14 +1,12 @@
 import { events } from '../stitch/mongodb';
 
 export const loadEvents = () => async (dispatch) => {
-  console.log('loading')
   const eventList = await events.find({}, { limit: 1000 }).asArray();
-  console.log(eventList)
   dispatch({ type: 'getEvents', payload: { eventList } });
 };
-export const addEvent = (result, userId) => async (dispatch) => {
+export const addEvent = (eventData, userId) => async (dispatch) => {
 
-  const event = { createdAt: new Date(), result, user_id: userId };
+  const event = { createdAt: new Date(), eventData, user_id: userId };
   const result = await events.insertOne(event);
   dispatch({
     type: 'postEvent',
