@@ -8,9 +8,6 @@ const eventsReducer = (
 ) => {
   switch (type) {
     case 'getEvents': {
-      const events = {
-        ...payload.eventList
-      };
       return {
         ...state,
         events: [...payload.eventList] || []

@@ -13,7 +13,7 @@ import { useStitchAuth } from './components/StitchAuth/StitchAuth';
 import LogoutScreen from './components/LogoutScreen/LogoutScreen';
 import About from './components/About/About';
 
-function App() {
+function App () {
   const { isLoggedIn } = useStitchAuth();
   const dispatch = useDispatch();
   const { events } = useSelector(({ eventsReducer }) => eventsReducer);
@@ -36,8 +36,8 @@ function App() {
         {isLoggedIn ? (
           <Redirect from="/login" to="/" component={Landing} />
         ) : (
-          <Route path="/login" component={Login} />
-        )}
+            <Route path="/login" component={Login} />
+          )}
         <Route exact path="/" component={Landing} />
         <Route exact path="/logout" component={LogoutScreen}></Route>
         <Route exact path="/schedule" component={Schedule} />
