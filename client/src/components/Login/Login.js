@@ -1,4 +1,8 @@
 import React from 'react';
+import {
+  FacebookLoginButton,
+  GoogleLoginButton
+} from 'react-social-login-buttons';
 
 import { useStitchAuth } from '../StitchAuth/StitchAuth';
 
@@ -12,24 +16,26 @@ export default function Login() {
         height: '100vh',
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'center'
+        justifyContent: 'center',
+        flexDirection: 'column'
       }}
     >
-      <div
-        provider="anonymous"
-        onClick={() => actions.handleLogin('anonymous')}
+      <FacebookLoginButton
+        style={{ display: 'flex', justifyContent: 'center', width: '250px' }}
+        provider="facebook"
+        onClick={() => actions.handleLogin('facebook')}
       >
-        Log In as a Guest User
-      </div>
-      <div
+        Log in with Facebook
+      </FacebookLoginButton>
+      <GoogleLoginButton
+        style={{ display: 'flex', justifyContent: 'center', width: '250px' }}
         provider="google"
         onClick={(e) => {
           actions.handleLogin('google');
         }}
       >
         Log In with Google
-      </div>
+      </GoogleLoginButton>
     </div>
   );
 }
-
