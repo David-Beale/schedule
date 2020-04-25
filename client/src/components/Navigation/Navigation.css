@@ -68,9 +68,6 @@
     align-items: flex-start;
     margin:0;
   }
-  .navigation-container .menu {
-    /* display: none; */
-  }
   .navigation-container a.icon {
     display: block;
   }
@@ -84,7 +81,7 @@
   .navigation-container .icon{
     position: fixed;
     top:1rem;
-    right:2rem;
+    right:3rem;
   }
 }
 @media screen and (max-width: 750px) {

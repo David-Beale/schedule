@@ -48,8 +48,7 @@ function Card (props) {
         </div>
 
       </div>
-      modalVisible ?
-      <EventModal visible={modalVisible} toggleModal={toggleModal} info={props.info} /> : null;
+      <EventModal visible={modalVisible} toggleModal={toggleModal} info={props.info} />
 
     </div>
   );
