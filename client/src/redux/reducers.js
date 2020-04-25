@@ -39,6 +39,12 @@ const eventsReducer = (
         events: state.events.map(updateEventStatus)
       };
     }
+    case 'getEventsByUserId': {
+      return {
+        ...state,
+        events: [...payload.eventList] || []
+      };
+    };
     default:
       return state;
   }

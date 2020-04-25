@@ -1,21 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { getCurrentUser } from '../../stitch/authentication';
-import { useSelector } from 'react-redux';
-
+import { useDispatch } from 'react-redux';
+import { loadEventsByUserId } from '../../redux/actions';
 
 function UserEventsList () {
-  const allEvents = useSelector(({ eventsReducer }) => eventsReducer.events);
+  const dispatch = useDispatch();
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
-    if (allEvents) {
-      let array = allEvents.map(event => event.eventData)
-      console.log(getCurrentUser());
-
-      console.log(array);
-      
-    }
-  }, [allEvents])
+    dispatch(loadEventsByUserId(getCurrentUser().id))
+      .then(events => {
+        console.log(events);
+      })
+  }, []);
 
   return (
     <div>
