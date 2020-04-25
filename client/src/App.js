@@ -15,7 +15,6 @@ import About from './components/About/About';
 
 function App() {
   const { isLoggedIn } = useStitchAuth();
-  console.log(isLoggedIn)
   const dispatch = useDispatch();
   const { events } = useSelector(({ eventsReducer }) => eventsReducer);
 
