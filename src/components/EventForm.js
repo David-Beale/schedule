@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, Input, DatePicker, InputNumber, Button, TimePicker, Upload } from 'antd';
+import { Form, Input, DatePicker, Button, TimePicker, Upload } from 'antd';
 import { LoadingOutlined, PlusOutlined } from '@ant-design/icons';
 const { TextArea } = Input;
 const { RangePicker } = TimePicker;
