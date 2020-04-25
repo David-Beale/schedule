@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import Moment from 'react-moment';
-import play from '../../assets/images/play.png'
 import Countdown from '../Countdown'
 
 function Card (props) {
   const [flipped, setFlipped] = useState(false)
-  const date = `${props.info.time[0]}:${props.info.time[1]}`
   const handleClick = () => {
     setFlipped(!flipped)
   }
@@ -19,7 +17,7 @@ function Card (props) {
           <div className='image-container'>
             <img src={props.info.image} className='card-image' />
           </div>
-          <div className='card-time'><Moment format="ddd Do MMM">{props.info.date}</Moment>{`,  ${date}`}</div>
+          <div className='card-time'><Moment format="ddd Do MMM, HH:mm">{props.info.date}</Moment></div>
           <div className='card-title'>
             {props.info.title}
           </div>

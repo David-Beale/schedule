@@ -16,10 +16,9 @@ import About from './components/About/About';
 function App() {
   const { isLoggedIn } = useStitchAuth();
   const dispatch = useDispatch();
-  const { events } = useSelector((state) => state);
 
   React.useEffect(() => {
-    dispatch(() => loadEvents());
+    dispatch(loadEvents());
   }, []);
 
   return (
