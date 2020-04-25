@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
@@ -16,10 +16,13 @@ import About from './components/About/About';
 function App () {
   const { isLoggedIn } = useStitchAuth();
   const dispatch = useDispatch();
+  const { events } = useSelector(({ eventsReducer }) => eventsReducer);
 
-  React.useEffect(() => {
-    dispatch(loadEvents());
-  }, []);
+  useEffect(() => {
+    if (isLoggedIn) {
+      dispatch(loadEvents());
+    }
+  }, [isLoggedIn]);
 
   return (
     <Router>
