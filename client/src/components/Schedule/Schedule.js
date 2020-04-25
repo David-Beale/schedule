@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 
 import data from '../../mocks/data';
 
@@ -6,8 +7,23 @@ function Schedule (props) {
   const [rowCounter, setRowCounter] = useState(1);
   const [rows, setRows] = useState([]);
   const [rowStorage, setRowStorage] = useState([Array(96)]);
-  const [hours, setHours] = useState([]);
+  const [hoursArray, setHoursArray] = useState([]);
+  const [data, setData] = useState([])
+  const dataStart = useSelector(({ eventsReducer }) => eventsReducer.events);
+  const today = new Date();
+  const hours = today.getHours();
+  const minutes = today.getMinutes();
+
+  //import data store
   useEffect(() => {
+    console.log(dataStart)
+    if (dataStart.length>0) {
+      let array = dataStart.map(event => event.eventData)
+      setData(array)
+    }
+  }, [dataStart])
+  useEffect(() => {
+    //setup time top margin
     let localHours = [];
     for (let i = 0; i < 24; i++) {
       let index = i.toString();
@@ -25,38 +41,33 @@ function Schedule (props) {
           <div className='grid-item1 end' key={i}>{`${index}:00`}</div>
         );
     }
-    setHours(localHours);
+    setHoursArray(localHours);
+    //setup first row
     const tempRows = [];
-    for (let j = 0; j < rowCounter; j++) {
-      const content = [];
-      for (let i = 0; i < 24; i++) {
-        content.push(
-          <div className='grid-item2' id={`time${i}`} key={i}></div>
-        );
-      }
-      tempRows.push(
-        <div className='flex-container fc2' id={`row${j}`} key={j}>
-          {content}
-        </div>
+    const content = [];
+    for (let i = 0; i < 24; i++) {
+      content.push(
+        <div className='grid-item2' id={`time${i}`} key={i}></div>
       );
     }
+    tempRows.push(
+      <div className='flex-container fc2' id={`row${0}`} key={0}>
+        {content}
+      </div>
+    );
     setRows(tempRows);
   }, []);
 
   const unitWidth = 350;
-  function timeToPosition (minutes, hours) {
-    return unitWidth * hours + unitWidth * (minutes / 60);
-  }
+
 
   useEffect(() => {
-    if (hours.length > 0) {
+    if (hoursArray.length > 0) {
       const slider = document.querySelector('.c2');
       const slider2 = document.querySelector('.fc1');
-      let today = new Date();
-      let hours = today.getHours();
-      let minutes = today.getMinutes();
 
-      let time = timeToPosition(minutes, hours);
+      //setup current time indicator
+      let time = unitWidth * hours + unitWidth * (minutes / 60);
       slider.scrollLeft = time - window.innerWidth / 2;
       const timeDiv = document.createElement('div');
       timeDiv.className = 'now';
@@ -64,6 +75,7 @@ function Schedule (props) {
       timeDiv.style.height = `${400 * rowCounter}px`;
       document.querySelector(`#time${hours}`).appendChild(timeDiv);
 
+      //setup drag to scroll 
       let isDown = false;
       let startX;
       let startY;
@@ -101,18 +113,23 @@ function Schedule (props) {
         slider.scrollTop = scrollTop - walky;
         slider2.scrollLeft = slider.scrollLeft;
       });
-      //// Data processing
+
+    }
+  }, [hoursArray]);
+  useEffect(() => {
+    if (hoursArray.length > 0 && data.length>0) {
+      // Database info processing
       let localRowCounter = rowCounter;
       for (let i = 0; i < data.length; i++) {
         let localRowStorage = [...rowStorage];
-        const contentHours = data[i].time[0];
-        const contentMins = data[i].time[1];
-        const contentLengthHours = data[i].length[0];
-        const contentLengthMinutes = data[i].length[1];
+        const contentHours = +data[i].date.getHours();
+        const contentMins = +data[i].date.getMinutes();
+        const contentLength = (data[i].endTime.getTime() - data[i].date.getTime()) / 1000 / 60
+        console.log(contentLength)
         const startTime = contentHours + contentMins / 60
-        const endTime = startTime + contentLengthHours + contentLengthMinutes / 60
         const startBlock = contentHours * 4 + contentMins / 15;
-        const blockLength = contentLengthHours * 4 + contentLengthMinutes / 15;
+        const endTime = startTime + contentLength / 60
+        const blockLength = contentLength / 15;
         let spaceCheck;
         let selectedRow;
         for (let i = 0; i < localRowStorage.length; i++) {
@@ -155,8 +172,7 @@ function Schedule (props) {
         newContent.id = `content${i}`;
         newContent.style.left = `${(contentMins / 60) * 100}%`;
         newContent.style.width = `${
-          contentLengthHours * unitWidth +
-          (contentLengthMinutes / 60) * unitWidth
+          (contentLength / 60) * unitWidth
           }px`;
         if (startTime < hours + (minutes / 60) && endTime > hours + (minutes / 60)) {
           newContent.style.background = 'linear-gradient(to bottom, #f7f7f7 0%,#f3dec7 70%,#faac87f6 100%) '
@@ -180,12 +196,9 @@ function Schedule (props) {
           .querySelector(`#row${selectedRow} #time${contentHours}`)
           .appendChild(newContent);
       }
-
       setRowCounter(localRowCounter);
-      ////
     }
-  }, [hours]);
-
+  }, [data]);
   useEffect(() => {
     const timeDiv = document.querySelector('.now');
     if (timeDiv) timeDiv.style.height = `${400 * rowCounter}px`;
@@ -194,7 +207,7 @@ function Schedule (props) {
   return (
     <div className='outer-container'>
       <div className='container c1'>
-        <div className='flex-container fc1'>{hours}</div>
+        <div className='flex-container fc1'>{hoursArray}</div>
       </div>
 
       <div className='container c2'>{rows}</div>

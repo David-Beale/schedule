@@ -1,11 +1,43 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import * as _ from 'underscore';
+import { useSelector } from 'react-redux';
 
-import data from '../../mocks/data';
 import mainImage from '../../assets/images/main.jpg'
 import Card from '../Card'
 
 function Landing (props) {
+
+  const [filterValue, setFilterValue] = useState('')
+  const [data, setData] = useState([])
+  const [dataOriginal, setDataOriginal] = useState([])
+  const dataStart = useSelector(({ eventsReducer }) => eventsReducer.events);
+
+  const handleChange = (e) => {
+    setFilterValue(e.target.value)
+  }
+  useEffect(() => {
+    if (dataStart) {
+      let array = dataStart.map(event => event.eventData)
+      setData(array)
+      setDataOriginal(array)
+    }
+  }, [dataStart])
+
+  useEffect(() => {
+    if (filterValue.length > 0) {
+      let arrayOfWords = filterValue.toLowerCase()
+      let newData = dataOriginal.filter(event => {
+        let title = event.title.toLowerCase()
+        return title.includes(arrayOfWords)
+      })
+      setData(newData)
+    } else {
+      if (dataOriginal.length > 0) {
+        setData(dataOriginal)
+      }
+    }
+  }, [filterValue])
 
   return (
     <div className='landing-outer-container'>
@@ -26,10 +58,17 @@ function Landing (props) {
         </div>
         <div id='events'></div>
         <div className='event-container'>
-          {data.map((info,index)=>{
+          <div className='form__group field'>
+            <input className='form__field' type="text" id="filter"
+              placeholder='Search events'
+              value={filterValue}
+              onChange={handleChange} />
+            <label htmlFor="filter" className="form__label">Search events</label>
+          </div>
+          {data.map((info, index) => {
             return <Card
-              info = {info}
-              key ={index}
+              info={info}
+              key={index}
             />
           })}
         </div>
