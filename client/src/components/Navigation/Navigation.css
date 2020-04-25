@@ -28,14 +28,20 @@
 }
 
 .button {
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 400;
   color: #111111;
   font-size: 1.2rem;
   margin: 0.2vh;
-  padding: 0.3rem;
+  padding: 0.6rem;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   transition: 0.5s;
+}
+.button:hover {
+  color: #f05537;
+  text-shadow: 0 0 3px #fff, 0 0 3px rgb(255, 123, 0);;
 }
 .icon {
   padding-top: 0.2rem;

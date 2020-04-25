@@ -66,7 +66,6 @@
 }
 
 .now{
-  /* height: calc(92.5vh - 11px); */
   width:5px;
   background-color: rgba(114, 139, 247, 0.562);
   position: absolute;
@@ -78,7 +77,6 @@
   height:97.5%;
   margin-top: 2.5%;
   background: linear-gradient(to bottom, #f7f7f7 0%,#e5eaec 70%,#e7f0f7 100%); 
-  /* background: linear-gradient(to bottom, #f7f7f7 0%,#f3dec7 70%,#faac87f6 100%);  */
   position: absolute;
   top:0;
   display: flex;
