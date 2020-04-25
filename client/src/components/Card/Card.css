@@ -32,7 +32,13 @@
   color: #f05537;
   font-size: 1rem;;
   font-weight: 700;
-  margin: 1rem 0;
+  margin: 0.2rem 0;
+}
+.card-artist{
+  font-family: 'Palanquin', sans-serif;
+  color: #f05537;
+  font-size: 1.3rem;;
+  font-weight: 700;
 }
 .card-title{
   font-family: 'Palanquin', sans-serif;

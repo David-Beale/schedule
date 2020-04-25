@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
@@ -13,17 +13,16 @@ import { useStitchAuth } from './components/StitchAuth/StitchAuth';
 import LogoutScreen from './components/LogoutScreen/LogoutScreen';
 import About from './components/About/About';
 
-function App() {
+function App () {
   const { isLoggedIn } = useStitchAuth();
-  console.log(isLoggedIn)
   const dispatch = useDispatch();
+  const { events } = useSelector(({ eventsReducer }) => eventsReducer);
 
-  React.useEffect(() => {
-    // if(isLoggedIn){
-    //   console.log('load')
+  useEffect(() => {
+    if (isLoggedIn) {
       dispatch(loadEvents());
-    // }
-  }, []);
+    }
+  }, [isLoggedIn]);
 
   return (
     <Router>
@@ -37,8 +36,8 @@ function App() {
         {isLoggedIn ? (
           <Redirect from="/login" to="/" component={Landing} />
         ) : (
-          <Route path="/login" component={Login} />
-        )}
+            <Route path="/login" component={Login} />
+          )}
         <Route exact path="/" component={Landing} />
         <Route exact path="/logout" component={LogoutScreen}></Route>
         <Route exact path="/schedule" component={Schedule} />

@@ -27,6 +27,12 @@ function Card(props) {
               {props.info.title}
             </div>
           </div>
+          <div className='card-artist'>{props.info.artistName}</div>
+          <div className='card-time'><Moment format="ddd Do MMM, HH:mm">{props.info.date}</Moment></div>
+          <div className='card-title'>
+            {props.info.title}
+          </div>
+        </div>
 
           <div className='card-container flip-card-back'>
             <div className='card-title back'>
