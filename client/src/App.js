@@ -15,10 +15,14 @@ import About from './components/About/About';
 
 function App() {
   const { isLoggedIn } = useStitchAuth();
+  console.log(isLoggedIn)
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(loadEvents());
+    // if(isLoggedIn){
+    //   console.log('load')
+      dispatch(loadEvents());
+    // }
   }, []);
 
   return (

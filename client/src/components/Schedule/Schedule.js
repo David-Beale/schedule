@@ -17,8 +17,8 @@ function Schedule (props) {
   //import data store
   useEffect(() => {
     console.log(dataStart)
-    if (Object.values(dataStart).length>0) {
-      let array = Object.values(dataStart).map(event => event.eventData)
+    if (dataStart.length>0) {
+      let array = dataStart.map(event => event.eventData)
       setData(array)
     }
   }, [dataStart])
