@@ -56,7 +56,7 @@ function Schedule (props) {
     setRows(tempRows);
   }, []);
 
-  const unitWidth = 350;
+  const unitWidth = 175;
 
 
   useEffect(() => {
@@ -115,6 +115,7 @@ function Schedule (props) {
     }
   }, [hoursArray]);
   useEffect(() => {
+    console.log(data)
     if (hoursArray.length > 0 && data.length > 0) {
       // Database info processing
       let localRowCounter = rowCounter;
@@ -122,12 +123,19 @@ function Schedule (props) {
       for (let i = 0; i < data.length; i++) {
         const contentHours = +data[i].date.getHours();
         const contentMins = +data[i].date.getMinutes();
-        const contentLength = (data[i].endTime.getTime() - data[i].date.getTime()) / 1000 / 60
+        let contentLength = (data[i].endTime.getTime() - data[i].date.getTime()) / 1000 / 60
         if (contentLength === 0) continue;
         const startTime = contentHours + contentMins / 60
         const startBlock = Math.floor(contentHours * 4 + contentMins / 15);
-        const endTime = startTime + contentLength / 60
-        const blockEnd = Math.ceil(contentHours * 4 + contentMins / 15) + (contentLength / 15)
+        let endTime = startTime + contentLength / 60
+        let blockEnd = Math.ceil((contentHours * 4 + contentMins / 15) + (contentLength / 15))
+        console.log(blockEnd, startTime, contentLength)
+        if(blockEnd > 96){
+          blockEnd = 96;
+          contentLength = 1440-startTime*60;
+          endTime = 1440;
+        }
+        console.log(blockEnd, startTime, contentLength)
         let spaceCheck;
         let selectedRow;
         for (let i = 0; i < localRowStorage.length; i++) {
@@ -180,7 +188,7 @@ function Schedule (props) {
         newDescription.innerHTML = data[i].description;
         const newImageContainer = document.createElement('div');
         newImageContainer.className = `content-image-container`;
-        if (width < 350) {
+        if (width < 175) {
           newImageContainer.style.width = `${width}px`;
         }
         const newImage = document.createElement('img');

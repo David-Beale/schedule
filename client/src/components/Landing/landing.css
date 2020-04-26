@@ -66,7 +66,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
+  text-align: center;
+  width:150px;
   color: aliceblue;
   font-size: 1rem;
   padding: 9px;
@@ -141,4 +142,26 @@
 .form__field:required,
 .form__field:invalid {
   box-shadow: none;
+}
+@media screen and (max-width: 750px) {
+  .header-container{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .header-text{
+    width: 95%;
+  }
+  .main-image{
+    width: 95%;
+  }
+  .header-text h2 {
+    font-size: 1.6rem;
+  }
+  .title-sub {
+    font-size: 1.2rem;
+  }
+  .support{
+    font-size: 1.2rem;
+    margin: 0.6rem 0;
+  }
 }

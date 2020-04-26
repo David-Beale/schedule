@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import Moment from 'react-moment';
 import Countdown from '../Countdown';
 import EventModal from '../EventModal/EventModal';
-function Card(props) {
-  const [flipped, setFlipped] = useState(false);
+
+function Card (props) {
+  const [flipped, setFlipped] = useState(false)
   const [modalVisible, setModalVisible] = useState(false);
   const handleClick = () => {
     setFlipped(!flipped);
@@ -24,14 +25,19 @@ function Card(props) {
             <div className="image-container">
               <img src={props.info.image} className="card-image" />
             </div>
-            <div className="card-time">
-              <Moment format="ddd Do MMM, HH:mm">{props.info.date}</Moment>
+            <div className='card-artist'>{props.info.artistName}</div>
+            <div className='card-time'><Moment format="ddd Do MMM, HH:mm">{props.info.date}</Moment></div>
+            <div className='card-title'>
+              {props.info.title}
             </div>
             <div className="card-title">{props.info.title}</div>
           </div>
-          <div className="card-container flip-card-back">
-            <div className="card-title back">{props.info.title}</div>
-            <div className="description-container">
+
+          <div className='card-container flip-card-back'>
+            <div className='card-title back'>
+              {props.info.title}
+            </div>
+            <div className='description-container'>
               {props.info.description}
             </div>
             <div className="countdown-container">
@@ -43,13 +49,7 @@ function Card(props) {
           </div>
         </div>
       </div>
-      {modalVisible ? (
-        <EventModal
-          visible={modalVisible}
-          toggleModal={toggleModal}
-          info={props.info}
-        />
-      ) : null}
+      <EventModal visible={modalVisible} toggleModal={toggleModal} info={props.info} />
     </div>
   );
 }

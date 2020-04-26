@@ -10,15 +10,8 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;700&display=swap"
-      rel="stylesheet"
-    />
-    <script
-      src="https://apis.google.com/js/platform.js?onload=init"
-      async
-      defer
-    ></script>
+    <link href="https://fonts.googleapis.com/css2?family=Palanquin:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!--
       manifest.json provides metadata used when your web app is installed on a
       user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -49,42 +42,5 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
 
-    <script type="text/javascript">
-      var CLIENT_ID =
-        '36421696091-pkcbrt22vodjp3ljf4t5i061nca73fs1.apps.googleusercontent.com';
-      var API_KEY = 'AIzaSyCxg4eLxzGSkbIcUHlpeSP4QcgtrVt9dGw';
-
-      // Array of API discovery doc URLs for APIs used by the quickstart
-      var DISCOVERY_DOCS = [
-        'https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest'
-      ];
-      var SCOPES = 'https://www.googleapis.com/auth/calendar.readonly';
-      function init() {
-        gapi.load('auth2', initClient);
-      }
-      function initClient() {
-        gapi.client
-          .init({
-            apiKey: API_KEY,
-            clientId: CLIENT_ID,
-            discoveryDocs: DISCOVERY_DOCS,
-            scope: SCOPES
-          })
-          .then(
-            function () {
-              // Listen for sign-in state changes.
-              gapi.auth2
-                .getAuthInstance()
-                .isSignedIn.listen(updateSigninStatus);
-
-              // Handle the initial sign-in state.
-              updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
-            },
-            function (error) {
-              appendPre(JSON.stringify(error, null, 2));
-            }
-          );
-      }
-    </script>
   </body>
 </html>

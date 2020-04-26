@@ -45,7 +45,7 @@
   color: #000000;
   font-size: 1.3rem;;
   font-weight: 700;
-  margin-left: 2rem;
+  margin: 0 1rem;
   align-self: flex-start;
 }
 .flip-card{
@@ -92,4 +92,17 @@
   font-size: 1.5rem;
   position: absolute;
   bottom:1rem;
+}
+@media screen and (max-width: 750px) {
+  .flip-card{
+    margin: 3px;
+  }
+
+}
+@media screen and (max-width: 350px) {
+  .flip-card{
+    height:300px;
+    width:300px;
+  }
+
 }

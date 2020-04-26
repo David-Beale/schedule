@@ -29,22 +29,64 @@
 
 .button {
   color: rgb(240, 85, 55,0.8);
-  font-weight: bold;
   font-size: 0.8rem;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 400;
   margin: 0.2vh;
-  padding: 0.3rem;
+  padding: 0.6rem;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
   transition: 0.5s;
 }
-
-.button:last-child {
+.button:hover {
   color: rgb(240, 85, 55,0.9);
+  text-shadow: 0 0 3px #fff, 0 0 3px rgb(255, 123, 0);;
 }
 .icon {
-  padding-top: 0.2rem;
-  max-width: 1.5rem;
-  max-height: 1.5rem;
-  padding-left: 1rem;
+  font-size:15px;
+  color:black;
+  display: none;
+}
+.icon:hover {
+  color: black;
+}
+.icon:visited {
+  color: black;
+}
+
+@media screen and (max-width: 750px) {
+  .navigation-container{
+    flex-direction: column;
+    height: 2.9rem;
+    align-items: flex-start;
+    transition: 0.6s;
+    margin:0
+  }
+  .navigation-container .navigation-links-container {
+    flex-direction: column;
+    align-items: flex-start;
+    margin:0;
+  }
+  .navigation-container a.icon {
+    display: block;
+  }
+  .navigation-container a{
+    margin:0;
+    padding-left:2rem;
+  }
+  .navigation-container .navigation-name{
+    padding-left:0rem;
+  }
+  .navigation-container .icon{
+    position: fixed;
+    top:1rem;
+    right:3rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .navigation-container.responsive{
+    height: 22rem;
+  }
+
 }
