@@ -42,6 +42,7 @@
 .main-image {
   width: 50%;
   padding: 2.5%;
+  overflow: hidden;
 }
 
 .event-container {
@@ -143,7 +144,12 @@
 .form__field:invalid {
   box-shadow: none;
 }
-@media screen and (max-width: 750px) {
+body::-webkit-scrollbar {
+  display: initial;
+  width: 10px;
+  height: 10px;
+}
+@media screen and (max-width: 750px)  {
   .header-container{
     flex-direction: column-reverse;
     align-items: center;
@@ -153,6 +159,33 @@
   }
   .main-image{
     width: 95%;
+  }
+  .header-text h2 {
+    font-size: 1.6rem;
+  }
+  .title-sub {
+    font-size: 1.2rem;
+  }
+  .support{
+    font-size: 1.2rem;
+    margin: 0.6rem 0;
+  }
+}
+@media screen and (orientation: portrait) and (min-width: 750px) {
+  .main-image{
+    display: block;
+    max-height:30vh;
+    width:75vw;
+    height: auto;
+    width: auto;
+  }
+  .header-container{
+    flex-direction: column-reverse;
+    align-items: center;
+  }
+  .header-text{
+    width: 70vw;
+    text-align: center;
   }
   .header-text h2 {
     font-size: 1.6rem;
