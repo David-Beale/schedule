@@ -1,0 +1,638 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Schedule should render properly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="outer-container"
+      >
+        <div
+          class="container date"
+        >
+          <div
+            class="arrow"
+          >
+            ⬅
+          </div>
+           
+          <time
+            class="sched-time"
+            datetime="1554632430000"
+          >
+            Sun 7th Apr
+          </time>
+           
+          <div
+            class="arrow"
+          >
+            ➡
+          </div>
+        </div>
+        <div
+          class="container c1"
+        >
+          <div
+            class="flex-container fc1"
+          >
+            <div
+              class="grid-item1"
+              id="margin0"
+            >
+              00:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin1"
+            >
+              01:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin2"
+            >
+              02:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin3"
+            >
+              03:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin4"
+            >
+              04:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin5"
+            >
+              05:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin6"
+            >
+              06:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin7"
+            >
+              07:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin8"
+            >
+              08:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin9"
+            >
+              09:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin10"
+            >
+              10:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin11"
+            >
+              11:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin12"
+            >
+              12:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin13"
+            >
+              13:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin14"
+            >
+              14:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin15"
+            >
+              15:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin16"
+            >
+              16:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin17"
+            >
+              17:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin18"
+            >
+              18:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin19"
+            >
+              19:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin20"
+            >
+              20:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin21"
+            >
+              21:00
+            </div>
+            <div
+              class="grid-item1"
+              id="margin22"
+            >
+              22:00
+            </div>
+            <div
+              class="grid-item1 end"
+            >
+              23:00
+            </div>
+          </div>
+        </div>
+        <div
+          class="container c2"
+        >
+          <div
+            class="flex-container fc2"
+            id="row0"
+          >
+            <div
+              class="grid-item2"
+              id="time0"
+            />
+            <div
+              class="grid-item2"
+              id="time1"
+            />
+            <div
+              class="grid-item2"
+              id="time2"
+            />
+            <div
+              class="grid-item2"
+              id="time3"
+            />
+            <div
+              class="grid-item2"
+              id="time4"
+            />
+            <div
+              class="grid-item2"
+              id="time5"
+            />
+            <div
+              class="grid-item2"
+              id="time6"
+            />
+            <div
+              class="grid-item2"
+              id="time7"
+            />
+            <div
+              class="grid-item2"
+              id="time8"
+            />
+            <div
+              class="grid-item2"
+              id="time9"
+            />
+            <div
+              class="grid-item2"
+              id="time10"
+            />
+            <div
+              class="grid-item2"
+              id="time11"
+            >
+              <div
+                class="now"
+                style="left: 33.33333333333333%; height: 400px;"
+              />
+            </div>
+            <div
+              class="grid-item2"
+              id="time12"
+            />
+            <div
+              class="grid-item2"
+              id="time13"
+            />
+            <div
+              class="grid-item2"
+              id="time14"
+            />
+            <div
+              class="grid-item2"
+              id="time15"
+            />
+            <div
+              class="grid-item2"
+              id="time16"
+            />
+            <div
+              class="grid-item2"
+              id="time17"
+            />
+            <div
+              class="grid-item2"
+              id="time18"
+            />
+            <div
+              class="grid-item2"
+              id="time19"
+            />
+            <div
+              class="grid-item2"
+              id="time20"
+            />
+            <div
+              class="grid-item2"
+              id="time21"
+            />
+            <div
+              class="grid-item2"
+              id="time22"
+            />
+            <div
+              class="grid-item2"
+              id="time23"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="outer-container"
+    >
+      <div
+        class="container date"
+      >
+        <div
+          class="arrow"
+        >
+          ⬅
+        </div>
+         
+        <time
+          class="sched-time"
+          datetime="1554632430000"
+        >
+          Sun 7th Apr
+        </time>
+         
+        <div
+          class="arrow"
+        >
+          ➡
+        </div>
+      </div>
+      <div
+        class="container c1"
+      >
+        <div
+          class="flex-container fc1"
+        >
+          <div
+            class="grid-item1"
+            id="margin0"
+          >
+            00:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin1"
+          >
+            01:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin2"
+          >
+            02:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin3"
+          >
+            03:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin4"
+          >
+            04:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin5"
+          >
+            05:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin6"
+          >
+            06:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin7"
+          >
+            07:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin8"
+          >
+            08:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin9"
+          >
+            09:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin10"
+          >
+            10:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin11"
+          >
+            11:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin12"
+          >
+            12:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin13"
+          >
+            13:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin14"
+          >
+            14:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin15"
+          >
+            15:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin16"
+          >
+            16:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin17"
+          >
+            17:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin18"
+          >
+            18:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin19"
+          >
+            19:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin20"
+          >
+            20:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin21"
+          >
+            21:00
+          </div>
+          <div
+            class="grid-item1"
+            id="margin22"
+          >
+            22:00
+          </div>
+          <div
+            class="grid-item1 end"
+          >
+            23:00
+          </div>
+        </div>
+      </div>
+      <div
+        class="container c2"
+      >
+        <div
+          class="flex-container fc2"
+          id="row0"
+        >
+          <div
+            class="grid-item2"
+            id="time0"
+          />
+          <div
+            class="grid-item2"
+            id="time1"
+          />
+          <div
+            class="grid-item2"
+            id="time2"
+          />
+          <div
+            class="grid-item2"
+            id="time3"
+          />
+          <div
+            class="grid-item2"
+            id="time4"
+          />
+          <div
+            class="grid-item2"
+            id="time5"
+          />
+          <div
+            class="grid-item2"
+            id="time6"
+          />
+          <div
+            class="grid-item2"
+            id="time7"
+          />
+          <div
+            class="grid-item2"
+            id="time8"
+          />
+          <div
+            class="grid-item2"
+            id="time9"
+          />
+          <div
+            class="grid-item2"
+            id="time10"
+          />
+          <div
+            class="grid-item2"
+            id="time11"
+          >
+            <div
+              class="now"
+              style="left: 33.33333333333333%; height: 400px;"
+            />
+          </div>
+          <div
+            class="grid-item2"
+            id="time12"
+          />
+          <div
+            class="grid-item2"
+            id="time13"
+          />
+          <div
+            class="grid-item2"
+            id="time14"
+          />
+          <div
+            class="grid-item2"
+            id="time15"
+          />
+          <div
+            class="grid-item2"
+            id="time16"
+          />
+          <div
+            class="grid-item2"
+            id="time17"
+          />
+          <div
+            class="grid-item2"
+            id="time18"
+          />
+          <div
+            class="grid-item2"
+            id="time19"
+          />
+          <div
+            class="grid-item2"
+            id="time20"
+          />
+          <div
+            class="grid-item2"
+            id="time21"
+          />
+          <div
+            class="grid-item2"
+            id="time22"
+          />
+          <div
+            class="grid-item2"
+            id="time23"
+          />
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "unmount": [Function],
+}
+`;

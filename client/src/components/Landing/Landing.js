@@ -19,9 +19,22 @@ function Landing(props) {
   };
   useEffect(() => {
     if (dataStart) {
-      let array = dataStart.map((event) => event.eventData);
-      setData(array);
-      setDataOriginal(array);
+      let array = dataStart.map(event => event.eventData)
+      let now = new Date()
+      let year = now.getFullYear()
+      let month = now.getMonth()
+      let day = now.getDate()
+      now = new Date(year, month, day)
+      array = array.filter(event=>{
+        let eventDate = event.date
+        let evetYear = eventDate.getFullYear()
+        let eventMonth = eventDate.getMonth()
+        let eventDay = eventDate.getDate()
+        eventDate = new Date(evetYear, eventMonth, eventDay)
+        return eventDate >= now
+      })
+      setData(array)
+      setDataOriginal(array)
     }
   }, [dataStart]);
 
