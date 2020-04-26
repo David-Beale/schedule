@@ -37,7 +37,7 @@
 }
 
 .c2{
-  height:92vh;
+  max-height:92vh;
   margin-top:0vh;
   overflow:scroll;
   position: relative;
@@ -104,6 +104,7 @@
   box-shadow: 0px 2px 6px 1px rgba(0,0,0,0.75);
   background: linear-gradient(to bottom, #f7f7f7 0%,#fcf2e3 70%,#fcebd5 100%); 
   min-width: 175px;
+  z-index: 20;
 }
 .content:hover .content-image-container{
   min-width:175px;
@@ -113,7 +114,7 @@
   color: #f05537;
   font-size: 1.2rem;;
   font-weight: 700;
-  max-height: 2rem;
+  max-height: 50%;
   overflow: hidden;
   text-align: center;
 }
@@ -177,5 +178,9 @@
   }
   .date{
     margin-top:2.9rem;
+  }
+  .sched-time{
+    font-size: 0.9rem;
+    margin: 0 15vw;
   }
 }
