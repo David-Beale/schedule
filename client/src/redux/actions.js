@@ -30,5 +30,5 @@ export const updateEventStatus = (eventId) => async (dispatch) => {
 
 export const loadEventsByUserId = (userId) => async (dispatch) => {
   const eventList = await events.find({ user_id: userId }).asArray();
-  dispatch({ type: 'getEventsByUserId', payload: { eventList }});
+  dispatch({ type: 'getEventsByUserId', payload: { eventList } });
 };
