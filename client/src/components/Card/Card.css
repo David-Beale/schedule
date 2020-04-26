@@ -93,3 +93,16 @@
   position: absolute;
   bottom:1rem;
 }
+@media screen and (max-width: 750px) {
+  .flip-card{
+    margin: 3px;
+  }
+
+}
+@media screen and (max-width: 350px) {
+  .flip-card{
+    height:300px;
+    width:300px;
+  }
+
+}
