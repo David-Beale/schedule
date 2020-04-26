@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import Moment from 'react-moment';
 import Countdown from '../Countdown';
 import EventModal from '../EventModal/EventModal';
-import AddToCalendar from 'react-add-to-calendar';
+import { DeleteOutlined } from '@ant-design/icons';
+import './OwnCard.css';
 
 function Card(props) {
-  let items = [{ outlook: 'Outlook' }, { google: 'Google' }, { apple: 'iCal' }];
   const [flipped, setFlipped] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
   const handleClick = () => {
@@ -47,17 +47,11 @@ function Card(props) {
                 backgroundColor: 'white'
               }}
             >
-              <AddToCalendar
-                event={{
-                  title: props.info.title,
-                  location: 'ViralCulture.com',
-                  description: props.info.description,
-                  startTime: props.info.date,
-                  endTime: props.info.endTime
-                }}
-                listItems={items}
-                buttonLabel="Add to Calendar"
-              ></AddToCalendar>
+              <button className="delete-btn"
+                onClick={() => props.handleDelete(props.id)}
+                style={{ background: 'transparent', border: 'none' }}>
+                <DeleteOutlined style={{ fontSize: "2em" }} />
+              </button>
             </div>
           </div>
 

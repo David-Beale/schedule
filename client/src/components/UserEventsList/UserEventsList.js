@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { getCurrentUser } from '../../stitch/authentication';
 import { useDispatch } from 'react-redux';
-import { loadEventsByUserId } from '../../redux/actions';
+import { loadEventsByUserId, removeEvent } from '../../redux/actions';
 import { useSelector } from 'react-redux';
-import Card from '../Card/Card';
+import OwnCard from '../OwnCard/OwnCard';
 
 function UserEventsList() {
   const dispatch = useDispatch();
@@ -17,18 +17,29 @@ function UserEventsList() {
 
   useEffect(() => {
     if (data) {
-      let array = data.map(event => event.eventData)
+      let array = data.map(event => event)
       setMyEvents(array)
     }
   }, [data])
+
+  const handleDelete = (id) => {
+    dispatch(removeEvent(id));
+  }
 
   return (
     <div className='event-container'>
       {myEvents.length > 0 && myEvents.sort((a,b) => b.date - a.date)
         .map((info, index) => {
-        console.log(myEvents)
-        return <Card info={info} key={index}/>
+        return <OwnCard info={info.eventData} id={info._id} key={index} handleDelete={handleDelete} />
       })}
+      {/* {data.map((info, index) => {
+        return <OwnCard
+          info={info.eventData}
+          key={index}
+          id={info._id}
+          handleDelete={handleDelete}
+        />
+      })} */}
     </div>
   )
 }

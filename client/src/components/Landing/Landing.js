@@ -66,7 +66,7 @@ function Landing (props) {
               onChange={handleChange} />
             <label htmlFor="filter" className="form__label">Search events</label>
           </div>
-          {data.map((info, index) => {
+          {data.length && data.map((info, index) => {
             return <Card
               info={info}
               key={index}
