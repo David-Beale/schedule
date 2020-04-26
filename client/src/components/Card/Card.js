@@ -3,8 +3,10 @@ import Moment from 'react-moment';
 import Countdown from '../Countdown';
 import EventModal from '../EventModal/EventModal';
 import AddToCalendar from 'react-add-to-calendar';
+import patreon from './patreon.png';
 
 function Card(props) {
+  console.log(props.info.patreonUrl);
   let items = [{ outlook: 'Outlook' }, { google: 'Google' }, { apple: 'iCal' }];
   const [flipped, setFlipped] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -36,18 +38,28 @@ function Card(props) {
               <Moment format="ddd Do MMM, HH:mm">{props.info.date}</Moment>
             </div>
             <div className="card-title">{props.info.title}</div>
-            <div onClick={handleChildClick} className="calendar-wrapper">
-              <AddToCalendar
-                event={{
-                  title: props.info.title,
-                  location: 'ViralCulture.com',
-                  description: props.info.description,
-                  startTime: props.info.date,
-                  endTime: props.info.endTime
-                }}
-                listItems={items}
-                buttonLabel="Add to Calendar"
-              ></AddToCalendar>
+            <div className="options-wrapper">
+              <div onClick={handleChildClick} className="calendar-wrapper">
+                <AddToCalendar
+                  event={{
+                    title: props.info.title,
+                    location: 'ViralCulture.com',
+                    description: props.info.description,
+                    startTime: props.info.date,
+                    endTime: props.info.endTime
+                  }}
+                  listItems={items}
+                  buttonLabel="Add to Calendar"
+                ></AddToCalendar>
+              </div>
+              <a
+                href={props.info.patreonUrl}
+                onClick={handleChildClick}
+                className="patreon-wrapper"
+              >
+                <img className="patreon-image" src={patreon} />
+                <span className="patreon-text">Become a Patron</span>
+              </a>
             </div>
           </div>
 
