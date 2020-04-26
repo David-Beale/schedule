@@ -27,11 +27,6 @@ function Navigation(props) {
           <div>Schedule</div>
         </Link>
         {isLoggedIn && (
-          <Link className="button menu" onClick={toggleMenu} to="/projects">
-            <div>Projects</div>
-          </Link>
-        )}
-        {isLoggedIn && (
           <Link className="button menu" onClick={toggleMenu} to="/events">
             <div>Your Events</div>
           </Link>
