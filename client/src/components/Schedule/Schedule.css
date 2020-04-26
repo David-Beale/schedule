@@ -11,9 +11,20 @@
 .flex-container{
   display:flex;
 }
+.date{
+  height:3rem;
+  margin-top:5vh;
+  z-index: 5;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-family: 'Palanquin', sans-serif;
+  font-weight: 700;
+}
 .c1{
   height:3vh;
-  margin-top:5vh;
   overflow-y: visible;
   position: relative;
   z-index: 5;
@@ -76,7 +87,7 @@
   box-sizing: border-box;
   height:97.5%;
   margin-top: 2.5%;
-  background: linear-gradient(to bottom, #f7f7f7 0%,#e5eaec 70%,#e7f0f7 100%); 
+  background: linear-gradient(to bottom, #f7f7f7 0%,#f8f2e9 70%,#f8eee0 100%); 
   position: absolute;
   top:0;
   display: flex;
@@ -86,19 +97,25 @@
   z-index: 10;
   border: 1px solid rgb(128, 127, 127);
   color: rgb(63, 63, 63);
-  overflow: scroll;
+  scrollbar-width: none;
+  overflow: hidden;
 }
 .content:hover{
   box-shadow: 0px 2px 6px 1px rgba(0,0,0,0.75);
-  background: linear-gradient(to bottom, #f7f7f7 0%,#dbeff7 50%,#d1e4f3 100%); 
+  background: linear-gradient(to bottom, #f7f7f7 0%,#fcf2e3 70%,#fcebd5 100%); 
+  min-width: 175px;
 }
+.content:hover .content-image-container{
+  min-width:175px;
+} 
 .content-title{
   font-family: 'Palanquin', sans-serif;
   color: #f05537;
-  font-size: 1.6rem;;
+  font-size: 1.2rem;;
   font-weight: 700;
   max-height: 2rem;
-  overflow: scroll;
+  overflow: hidden;
+  text-align: center;
 }
 .content-image-container{
   width:175px;
@@ -111,10 +128,22 @@
 .content-description{
   font-family: 'Palanquin', sans-serif;
   color: #000000;
-  font-size: 1.4rem;
+  font-size: 1rem;
   font-weight: 400;
   max-height: 4rem;
-  overflow: scroll;
+  overflow: hidden;
+  text-align: center;
+}
+.sched-time{
+  margin: 0 5rem;
+}
+.arrow{
+  font-size: 3rem;
+  color: #f05537;
+  cursor: pointer;
+}
+.arrow:hover{
+  color: #3768f0;
 }
 /* width */
 ::-webkit-scrollbar {
@@ -146,7 +175,7 @@
   .c2::-webkit-scrollbar {
     display: none;
   }
-  .c1{
+  .date{
     margin-top:2.9rem;
   }
 }
