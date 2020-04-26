@@ -30,7 +30,6 @@ function Card (props) {
             <div className='card-title'>
               {props.info.title}
             </div>
-            <div className="card-title">{props.info.title}</div>
           </div>
 
           <div className='card-container flip-card-back'>
