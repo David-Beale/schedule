@@ -12,6 +12,7 @@ import Landing from './components/Landing';
 import { useStitchAuth } from './components/StitchAuth/StitchAuth';
 import LogoutScreen from './components/LogoutScreen/LogoutScreen';
 import About from './components/About/About';
+import UserEventsList from './components/UserEventsList/UserEventsList';
 
 function App () {
   const { isLoggedIn } = useStitchAuth();
@@ -42,6 +43,7 @@ function App () {
         <Route exact path="/logout" component={LogoutScreen}></Route>
         <Route exact path="/schedule" component={Schedule} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/events" component={UserEventsList} />
         {isLoggedIn && <Route exact path="/form" component={EventForm} />}
         <Route component={NoMatch} />
       </AnimatedSwitch>
