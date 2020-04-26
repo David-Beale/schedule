@@ -6,104 +6,20 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        class="navigation-container"
-        id="myTopnav"
+        style="height: 100vh; display: flex; align-items: center; justify-content: center;"
       >
-        <a
-          class="button"
-          href="/"
-          id="logo"
-        >
-          <div
-            class="navigation-name"
-          >
-            Logo
-          </div>
-        </a>
-        <div
-          class="navigation-links-container"
-        >
-          <a
-            class="button menu"
-            href="/"
-          >
-            <div>
-              Home
-            </div>
-          </a>
-          <a
-            class="button menu"
-            href="/about"
-          >
-            <div>
-              About
-            </div>
-          </a>
-          <a
-            class="button menu"
-            href="/login"
-          >
-            <div>
-              Login
-            </div>
-          </a>
-          <a
-            class="icon"
-          >
-            ☰
-          </a>
+        <div>
+          You have successfully logged out
         </div>
       </div>
     </div>
   </body>,
   "container": <div>
     <div
-      class="navigation-container"
-      id="myTopnav"
+      style="height: 100vh; display: flex; align-items: center; justify-content: center;"
     >
-      <a
-        class="button"
-        href="/"
-        id="logo"
-      >
-        <div
-          class="navigation-name"
-        >
-          Logo
-        </div>
-      </a>
-      <div
-        class="navigation-links-container"
-      >
-        <a
-          class="button menu"
-          href="/"
-        >
-          <div>
-            Home
-          </div>
-        </a>
-        <a
-          class="button menu"
-          href="/about"
-        >
-          <div>
-            About
-          </div>
-        </a>
-        <a
-          class="button menu"
-          href="/login"
-        >
-          <div>
-            Login
-          </div>
-        </a>
-        <a
-          class="icon"
-        >
-          ☰
-        </a>
+      <div>
+        You have successfully logged out
       </div>
     </div>
   </div>,

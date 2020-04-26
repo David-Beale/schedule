@@ -1,20 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { StitchAuthProvider } from './components/StitchAuth/StitchAuth';
+import { StitchAuthProvider } from '../StitchAuth/StitchAuth';
 import { Provider } from 'react-redux';
-import configureStore from './redux/store';
-import App from './App';
+import configureStore from '../../redux/store';
+import Landing from './Landing';
 import { render } from '@testing-library/react';
 
 const store = configureStore();
 
-describe('App', () => {
+describe('Landing', () => {
   it('should render without crashing', () => {
     const div = document.createElement('div');
     ReactDOM.render(
       <Provider store={store}>
         <StitchAuthProvider>
-          <App />
+          <Landing />
         </StitchAuthProvider>
       </Provider>,
       div
@@ -24,7 +24,7 @@ describe('App', () => {
     const component = render(
       <Provider store={store}>
         <StitchAuthProvider>
-          <App />
+          <Landing />
         </StitchAuthProvider>
       </Provider>
     );

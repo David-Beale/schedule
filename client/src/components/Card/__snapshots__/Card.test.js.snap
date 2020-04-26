@@ -29,17 +29,36 @@ Object {
                 class="card-time"
               >
                 <time
-                  datetime="1587898583248"
+                  datetime="1587894375302"
                 >
-                  Sun 26th Apr, 11:56
+                  Sun 26th Apr, 10:46
                 </time>
               </div>
               <div
                 class="card-title"
               />
               <div
-                class="card-title"
-              />
+                class="calendar-wrapper"
+              >
+                <div
+                  class="react-add-to-calendar"
+                >
+                  <div
+                    class="react-add-to-calendar__wrapper"
+                  >
+                    <a
+                      class="react-add-to-calendar__button"
+                    >
+                      <span>
+                        Add to Calendar 
+                        <i
+                          class="react-add-to-calendar__icon--right fa fa-caret-down"
+                        />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
             <div
               class="card-container flip-card-back"
@@ -56,7 +75,7 @@ Object {
               <a
                 class="event-link"
               >
-                Click here
+                Watch here!
               </a>
             </div>
           </div>
@@ -89,17 +108,36 @@ Object {
               class="card-time"
             >
               <time
-                datetime="1587898583248"
+                datetime="1587894375302"
               >
-                Sun 26th Apr, 11:56
+                Sun 26th Apr, 10:46
               </time>
             </div>
             <div
               class="card-title"
             />
             <div
-              class="card-title"
-            />
+              class="calendar-wrapper"
+            >
+              <div
+                class="react-add-to-calendar"
+              >
+                <div
+                  class="react-add-to-calendar__wrapper"
+                >
+                  <a
+                    class="react-add-to-calendar__button"
+                  >
+                    <span>
+                      Add to Calendar 
+                      <i
+                        class="react-add-to-calendar__icon--right fa fa-caret-down"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="card-container flip-card-back"
@@ -116,7 +154,7 @@ Object {
             <a
               class="event-link"
             >
-              Click here
+              Watch here!
             </a>
           </div>
         </div>
@@ -218,8 +256,27 @@ Object {
                 class="card-title"
               />
               <div
-                class="card-title"
-              />
+                class="calendar-wrapper"
+              >
+                <div
+                  class="react-add-to-calendar"
+                >
+                  <div
+                    class="react-add-to-calendar__wrapper"
+                  >
+                    <a
+                      class="react-add-to-calendar__button"
+                    >
+                      <span>
+                        Add to Calendar 
+                        <i
+                          class="react-add-to-calendar__icon--right fa fa-caret-down"
+                        />
+                      </span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
             <div
               class="card-container flip-card-back"
@@ -236,7 +293,7 @@ Object {
               <a
                 class="event-link"
               >
-                Click here
+                Watch here!
               </a>
             </div>
           </div>
@@ -281,8 +338,27 @@ Object {
               class="card-title"
             />
             <div
-              class="card-title"
-            />
+              class="calendar-wrapper"
+            >
+              <div
+                class="react-add-to-calendar"
+              >
+                <div
+                  class="react-add-to-calendar__wrapper"
+                >
+                  <a
+                    class="react-add-to-calendar__button"
+                  >
+                    <span>
+                      Add to Calendar 
+                      <i
+                        class="react-add-to-calendar__icon--right fa fa-caret-down"
+                      />
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
           <div
             class="card-container flip-card-back"
@@ -299,7 +375,7 @@ Object {
             <a
               class="event-link"
             >
-              Click here
+              Watch here!
             </a>
           </div>
         </div>

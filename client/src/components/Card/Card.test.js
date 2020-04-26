@@ -5,6 +5,18 @@ import React from 'react';
 
 describe('Card', () => {
   it('should render without crashing', () => {
+    const RealDate = Date.now;
+
+    beforeAll(() => {
+      global.Date.now = jest.fn(() => new Date('2020-04-26T09:46:15.302Z'));
+    });
+
+    afterAll(() => {
+      global.Date.now = RealDate;
+    });
+    jest.mock('moment', () => () => ({
+      format: () => '2020-04-26T09:46:15.302Z',
+    }));
     const div = document.createElement('div');
     ReactDOM.render(
       <Card
@@ -36,7 +48,7 @@ describe('Card', () => {
         info={{
           image: undefined,
           artistName: undefined,
-          date: undefined,
+          date: '2020-04-26T09:46:15.302Z',
         }}
       />
     );

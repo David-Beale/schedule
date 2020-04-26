@@ -2,27 +2,27 @@ import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import Moment from 'react-moment';
 
-function Schedule (props) {
+function Schedule(props) {
   const [rowCounter, setRowCounter] = useState(1);
   const [rows, setRows] = useState([]);
   const [initialRow, setInitialRow] = useState([]);
   const [hoursArray, setHoursArray] = useState([]);
-  const [data, setData] = useState([])
-  const [filteredData, setFilteredData] = useState([])
+  const [data, setData] = useState([]);
+  const [filteredData, setFilteredData] = useState([]);
   const dataStart = useSelector(({ eventsReducer }) => eventsReducer.events);
-  const today = new Date();
-  const [currentDay, setCurrentDay] = useState(today)
+  const today = Date.now();
+  const [currentDay, setCurrentDay] = useState(today);
   const hours = today.getHours();
   const minutes = today.getMinutes();
 
   //import data store
   useEffect(() => {
     if (dataStart.length > 0) {
-      let array = dataStart.map(event => event.eventData)
-      setData(array)
-      filterByDay(array, today)
+      let array = dataStart.map((event) => event.eventData);
+      setData(array);
+      filterByDay(array, today);
     }
-  }, [dataStart])
+  }, [dataStart]);
   useEffect(() => {
     //setup time top margin
     let localHours = [];
@@ -47,21 +47,18 @@ function Schedule (props) {
     const tempRows = [];
     const content = [];
     for (let i = 0; i < 24; i++) {
-      content.push(
-        <div className='grid-item2' id={`time${i}`} key={i}></div>
-      );
+      content.push(<div className='grid-item2' id={`time${i}`} key={i}></div>);
     }
     tempRows.push(
       <div className='flex-container fc2' id={`row${0}`} key={0}>
         {content}
       </div>
     );
-    setInitialRow(tempRows)
+    setInitialRow(tempRows);
     setRows(tempRows);
   }, []);
 
   const unitWidth = 175;
-
 
   useEffect(() => {
     if (hoursArray.length > 0) {
@@ -77,7 +74,7 @@ function Schedule (props) {
       timeDiv.style.height = `${400 * rowCounter}px`;
       document.querySelector(`#time${hours}`).appendChild(timeDiv);
 
-      //setup drag to scroll 
+      //setup drag to scroll
       let isDown = false;
       let startX;
       let startY;
@@ -115,7 +112,6 @@ function Schedule (props) {
         slider.scrollTop = scrollTop - walky;
         slider2.scrollLeft = slider.scrollLeft;
       });
-
     }
   }, [hoursArray]);
   useEffect(() => {
@@ -126,12 +122,17 @@ function Schedule (props) {
       for (let i = 0; i < filteredData.length; i++) {
         const contentHours = +filteredData[i].date.getHours();
         const contentMins = +filteredData[i].date.getMinutes();
-        let contentLength = (filteredData[i].endTime.getTime() - filteredData[i].date.getTime()) / 1000 / 60
+        let contentLength =
+          (filteredData[i].endTime.getTime() - filteredData[i].date.getTime()) /
+          1000 /
+          60;
         if (contentLength === 0) continue;
-        const startTime = contentHours + contentMins / 60
+        const startTime = contentHours + contentMins / 60;
         const startBlock = Math.floor(contentHours * 4 + contentMins / 15);
-        let endTime = startTime + contentLength / 60
-        let blockEnd = Math.ceil((contentHours * 4 + contentMins / 15) + (contentLength / 15))
+        let endTime = startTime + contentLength / 60;
+        let blockEnd = Math.ceil(
+          contentHours * 4 + contentMins / 15 + contentLength / 15
+        );
         if (blockEnd > 96) {
           blockEnd = 96;
           contentLength = 1440 - startTime * 60;
@@ -176,10 +177,14 @@ function Schedule (props) {
         newContent.className = `content`;
         newContent.id = `content${i}`;
         newContent.style.left = `${(contentMins / 60) * 100}%`;
-        const width = (contentLength / 60) * unitWidth
+        const width = (contentLength / 60) * unitWidth;
         newContent.style.width = `${width}px`;
-        if (startTime < hours + (minutes / 60) && endTime > hours + (minutes / 60)) {
-          newContent.style.background = 'linear-gradient(to bottom, #f7f7f7 0%,#fcf2e3 70%,#fcebd5 100%)'
+        if (
+          startTime < hours + minutes / 60 &&
+          endTime > hours + minutes / 60
+        ) {
+          newContent.style.background =
+            'linear-gradient(to bottom, #f7f7f7 0%,#fcf2e3 70%,#fcebd5 100%)';
         }
         const newTitle = document.createElement('div');
         newTitle.className = `content-title`;
@@ -202,7 +207,6 @@ function Schedule (props) {
         document
           .querySelector(`#row${selectedRow} #time${contentHours}`)
           .appendChild(newContent);
-
       }
       setRowCounter(localRowCounter);
     }
@@ -213,10 +217,10 @@ function Schedule (props) {
   }, [rowCounter]);
 
   const dayBack = () => {
-    let day = currentDay
+    let day = currentDay;
     day = new Date(day.setDate(day.getDate() - 1));
-    setCurrentDay(day)
-    const myNode = document.querySelector(".c2");
+    setCurrentDay(day);
+    const myNode = document.querySelector('.c2');
     myNode.innerHTML = '';
     const newRow = document.createElement('div');
     newRow.id = `row0`;
@@ -235,13 +239,13 @@ function Schedule (props) {
     timeDiv.style.left = `${(minutes / 60) * 100}%`;
     timeDiv.style.height = `${200}px`;
     document.querySelector(`#time${hours}`).appendChild(timeDiv);
-    filterByDay(data, day)
-  }
+    filterByDay(data, day);
+  };
   const dayFwd = () => {
-    let day = currentDay
+    let day = currentDay;
     day = new Date(day.setDate(day.getDate() + 1));
-    setCurrentDay(day)
-    const myNode = document.querySelector(".c2");
+    setCurrentDay(day);
+    const myNode = document.querySelector('.c2');
     myNode.innerHTML = '';
     const newRow = document.createElement('div');
     newRow.id = `row0`;
@@ -260,27 +264,35 @@ function Schedule (props) {
     timeDiv.style.left = `${(minutes / 60) * 100}%`;
     timeDiv.style.height = `${200}px`;
     document.querySelector(`#time${hours}`).appendChild(timeDiv);
-    filterByDay(data, day)
-  }
+    filterByDay(data, day);
+  };
   const filterByDay = (array, filterDay) => {
-    let year = filterDay.getFullYear()
-    let month = filterDay.getMonth()
-    let day = filterDay.getDate()
-    let now = new Date(year, month, day)
-    let filtered = array.filter(event => {
-      let eventDate = event.date
-      let evetYear = eventDate.getFullYear()
-      let eventMonth = eventDate.getMonth()
-      let eventDay = eventDate.getDate()
-      eventDate = new Date(evetYear, eventMonth, eventDay)
-      return eventDate - now === 0
-    })
-    setFilteredData(filtered)
-  }
+    let year = filterDay.getFullYear();
+    let month = filterDay.getMonth();
+    let day = filterDay.getDate();
+    let now = new Date(year, month, day);
+    let filtered = array.filter((event) => {
+      let eventDate = event.date;
+      let evetYear = eventDate.getFullYear();
+      let eventMonth = eventDate.getMonth();
+      let eventDay = eventDate.getDate();
+      eventDate = new Date(evetYear, eventMonth, eventDay);
+      return eventDate - now === 0;
+    });
+    setFilteredData(filtered);
+  };
   return (
     <div className='outer-container'>
       <div className='container date'>
-        <div onClick={dayBack} className='arrow'>&#x2B05;</div>   <Moment className='sched-time' format="ddd Do MMM">{currentDay}</Moment> 	<div onClick={dayFwd} className='arrow'>&#x27A1;</div>
+        <div onClick={dayBack} className='arrow'>
+          &#x2B05;
+        </div>{' '}
+        <Moment className='sched-time' format='ddd Do MMM'>
+          {currentDay}
+        </Moment>{' '}
+        <div onClick={dayFwd} className='arrow'>
+          &#x27A1;
+        </div>
       </div>
       <div className='container c1'>
         <div className='flex-container fc1'>{hoursArray}</div>

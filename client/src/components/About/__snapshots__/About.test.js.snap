@@ -8,11 +8,97 @@ Object {
       <div
         class="about-container"
       >
-        <h1
-          style="color: orange;"
+        <div
+          class="about-section"
         >
-          About us
-        </h1>
+          <h2>
+            Who are we
+          </h2>
+          <p>
+            software engineers that share the same belief of helping passionate people to share their skills and passions.
+          </p>
+          <p>
+            We believe that the current situation shouldn't prevent anyone to share skills and knowlegde
+          </p>
+          <p>
+            We want to help everyone to be able to start and continue sharing their skills and abilities and knowledge through the means they already have or help them create new ways to share.
+          </p>
+        </div>
+        <div
+          class="about-section"
+        >
+          <h2>
+            How we do it
+          </h2>
+          <p>
+            We are sharing anyone's events so that everyone knows when their favorite performer is going to share again. We keep track of the time of events so that no one would miss events that they would like to attent to.
+          </p>
+        </div>
+        <div
+          class="about-section"
+        >
+          <h2>
+            What we do
+          </h2>
+          <p>
+            We gather information from people's submission through our platform with the details of their events and display them to the public.
+          </p>
+        </div>
+        <div
+          class="about-section"
+        >
+          <h2>
+            The Team
+          </h2>
+          <div
+            class="team__container"
+          >
+            <div
+              class="dev__container"
+            >
+              <img
+                alt="David Beale"
+                src="db.jpg"
+              />
+              <h5>
+                David Beale
+              </h5>
+            </div>
+            <div
+              class="dev__container"
+            >
+              <img
+                alt="Pawel Pietruszka"
+                src="pp.jpg"
+              />
+              <h5>
+                Pawel Pietruszka
+              </h5>
+            </div>
+            <div
+              class="dev__container"
+            >
+              <img
+                alt="Giovanni Stasi"
+                src="gs.jpg"
+              />
+              <h5>
+                Giovanni Stasi
+              </h5>
+            </div>
+            <div
+              class="dev__container"
+            >
+              <img
+                alt="Joseph Tolentino"
+                src="jt.jpg"
+              />
+              <h5>
+                Joseph Tolentino
+              </h5>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </body>,
@@ -20,11 +106,97 @@ Object {
     <div
       class="about-container"
     >
-      <h1
-        style="color: orange;"
+      <div
+        class="about-section"
       >
-        About us
-      </h1>
+        <h2>
+          Who are we
+        </h2>
+        <p>
+          software engineers that share the same belief of helping passionate people to share their skills and passions.
+        </p>
+        <p>
+          We believe that the current situation shouldn't prevent anyone to share skills and knowlegde
+        </p>
+        <p>
+          We want to help everyone to be able to start and continue sharing their skills and abilities and knowledge through the means they already have or help them create new ways to share.
+        </p>
+      </div>
+      <div
+        class="about-section"
+      >
+        <h2>
+          How we do it
+        </h2>
+        <p>
+          We are sharing anyone's events so that everyone knows when their favorite performer is going to share again. We keep track of the time of events so that no one would miss events that they would like to attent to.
+        </p>
+      </div>
+      <div
+        class="about-section"
+      >
+        <h2>
+          What we do
+        </h2>
+        <p>
+          We gather information from people's submission through our platform with the details of their events and display them to the public.
+        </p>
+      </div>
+      <div
+        class="about-section"
+      >
+        <h2>
+          The Team
+        </h2>
+        <div
+          class="team__container"
+        >
+          <div
+            class="dev__container"
+          >
+            <img
+              alt="David Beale"
+              src="db.jpg"
+            />
+            <h5>
+              David Beale
+            </h5>
+          </div>
+          <div
+            class="dev__container"
+          >
+            <img
+              alt="Pawel Pietruszka"
+              src="pp.jpg"
+            />
+            <h5>
+              Pawel Pietruszka
+            </h5>
+          </div>
+          <div
+            class="dev__container"
+          >
+            <img
+              alt="Giovanni Stasi"
+              src="gs.jpg"
+            />
+            <h5>
+              Giovanni Stasi
+            </h5>
+          </div>
+          <div
+            class="dev__container"
+          >
+            <img
+              alt="Joseph Tolentino"
+              src="jt.jpg"
+            />
+            <h5>
+              Joseph Tolentino
+            </h5>
+          </div>
+        </div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
