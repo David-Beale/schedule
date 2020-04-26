@@ -2,7 +2,8 @@ import { combineReducers } from 'redux';
 
 const eventsReducer = (
   state = {
-    events: []
+    events: [],
+    myEvents: []
   },
   { type, payload }
 ) => {
@@ -39,6 +40,12 @@ const eventsReducer = (
         events: state.events.map(updateEventStatus)
       };
     }
+    case 'getEventsByUserId': {
+      return {
+        ...state,
+        myEvents: [...payload.eventList] || []
+      };
+    };
     default:
       return state;
   }
