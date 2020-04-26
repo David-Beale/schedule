@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { useStitchAuth } from '../StitchAuth/StitchAuth';
 import './Navigation.css';
 
-function Navigation (props) {
+function Navigation(props) {
   const { isLoggedIn, actions } = useStitchAuth();
   const toggleMenu = () => {
     const x = document.getElementById('myTopnav');
@@ -37,7 +37,7 @@ function Navigation (props) {
           </Link>
         )}
         <Link className="button menu" onClick={toggleMenu} to="/about">
-          <div>Nav2</div>
+          <div>About</div>
         </Link>
         {isLoggedIn ? (
           <Link className="button menu" onClick={toggleMenu} to="/logout">

@@ -9,13 +9,13 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 224, 179);
   box-shadow: 1px 1px 8px 1px rgba(189, 189, 189, 0.2);
 }
 .navigation-name {
   font-family: 'Montserrat', sans-serif;
   color: #f05537;
-  font-size: 1.7rem;;
+  font-size: 1.7rem;
   font-weight: 600;
   padding-left: 2rem;
 }
@@ -28,10 +28,10 @@
 }
 
 .button {
+  color: rgb(240, 85, 55,0.8);
+  font-size: 0.8rem;
   font-family: 'Palanquin', sans-serif;
   font-weight: 400;
-  color: #111111;
-  font-size: 1.2rem;
   margin: 0.2vh;
   padding: 0.6rem;
   text-align: center;
@@ -40,7 +40,7 @@
   transition: 0.5s;
 }
 .button:hover {
-  color: #f05537;
+  color: rgb(240, 85, 55,0.9);
   text-shadow: 0 0 3px #fff, 0 0 3px rgb(255, 123, 0);;
 }
 .icon {
