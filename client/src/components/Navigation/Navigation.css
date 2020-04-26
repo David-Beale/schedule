@@ -9,7 +9,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(250, 234, 211);
+  background-color: rgb(255, 224, 179);
+  /* background-color: white; */
   box-shadow: 1px 1px 8px 1px rgba(189, 189, 189, 0.2);
 }
 .navigation-name {
