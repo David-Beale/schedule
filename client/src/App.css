@@ -2,6 +2,7 @@
 
 @import '~antd/dist/antd.css';
 body {
+  background-color: rgb(255, 236, 179, 0.1);
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',

@@ -21,20 +21,30 @@ function EventForm() {
   };
 
   async function submitForm(values) {
-    const { title, description, eventTime, eventDate, artistName, streamUrl } = values;
+    const {
+      title,
+      description,
+      eventTime,
+      eventDate,
+      artistName,
+      streamUrl
+    } = values;
     const formData = {
       artistName,
       title,
       description,
       streamUrl,
       image: imageUrl,
-      date: new Date(eventDate.format('MMMM D, YYYY ') + eventTime[0].format('HH:mm') + ':00'),
-      endTime: new Date(eventDate.format('MMMM D, YYYY ') + eventTime[1].format('HH:mm') + ':00'),
+      date: new Date(
+        eventDate.format('MMMM D, YYYY ') + eventTime[0].format('HH:mm') + ':00'
+      ),
+      endTime: new Date(
+        eventDate.format('MMMM D, YYYY ') + eventTime[1].format('HH:mm') + ':00'
+      )
     };
 
-      dispatch(addEvent(formData, currentUser.id));
-      setSubmitted(true);
-
+    dispatch(addEvent(formData, currentUser.id));
+    setSubmitted(true);
   }
 
   function uploadPicture(info) {
@@ -73,7 +83,6 @@ function EventForm() {
 
   return (
     <Route>
-
       <div
         style={{
           display: 'flex',
@@ -83,7 +92,7 @@ function EventForm() {
       >
         <h1 style={{ margin: '50px auto auto auto', paddingBottom: '3vh' }}>
           Create a new event
-      </h1>
+        </h1>
         <Form
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 14 }}
@@ -94,21 +103,47 @@ function EventForm() {
           <Form.Item
             name="artistName"
             label="Artist's Name"
-            rules={[{ required: true, message: 'Please write the artist\'s name' }]}
+            rules={[
+              { required: true, message: "Please write the artist's name" }
+            ]}
           >
             <Input></Input>
           </Form.Item>
-          <Form.Item name="title" label="Title" rules={[{ required: true, message: 'Please write the event\'s title' }]}>
+          <Form.Item
+            name="title"
+            label="Title"
+            rules={[
+              { required: true, message: "Please write the event's title" }
+            ]}
+          >
             <Input></Input>
           </Form.Item>
           <Form.Item
             name="description"
             label="Description"
-            rules={[{ required: true, message: 'Please write a description for the event' }, { min: 50, message: 'Description must be at least 50 characters long' }]}
+            rules={[
+              {
+                required: true,
+                message: 'Please write a description for the event'
+              },
+              {
+                min: 50,
+                message: 'Description must be at least 50 characters long'
+              }
+            ]}
           >
             <TextArea autoSize={{ minRows: 4, maxRows: 7 }} />
           </Form.Item>
-          <Form.Item name="upload" label="Profile picture" rules={[{ required: true, message: 'Please upload a picture for the event' }]}>
+          <Form.Item
+            name="upload"
+            label="Profile picture"
+            rules={[
+              {
+                required: true,
+                message: 'Please upload a picture for the event'
+              }
+            ]}
+          >
             <Upload
               name="avatar"
               customRequest={cloudinaryRequest}
@@ -122,8 +157,8 @@ function EventForm() {
               {imageUrl ? (
                 <img src={imageUrl} alt="avatar" style={{ width: '100%' }} />
               ) : (
-                  uploadButton
-                )}
+                uploadButton
+              )}
             </Upload>
           </Form.Item>
           <Form.Item
@@ -132,23 +167,53 @@ function EventForm() {
             rules={[
               { required: true, message: 'Please input a stream URL' },
               {
-                type: "url",
-                message: "Please input a valid stream URL."
-              }]}
+                type: 'url',
+                message: 'Please input a valid stream URL.'
+              }
+            ]}
           >
             <Input></Input>
           </Form.Item>
 
-          <Form.Item name="eventDate" label="Date" rules={[{ required: true, message: 'Please choose a date for the event' }]}>
+          <Form.Item
+            name="patreonUrl"
+            label="Patreon URL"
+            rules={[
+              { required: true, message: 'Please input a valid Patreon URL' },
+              {
+                type: 'url',
+                essage: 'Please input a valid Patreon URL'
+              }
+            ]}
+          >
+            <Input></Input>
+          </Form.Item>
+
+          <Form.Item
+            name="eventDate"
+            label="Date"
+            rules={[
+              { required: true, message: 'Please choose a date for the event' }
+            ]}
+          >
             <DatePicker />
           </Form.Item>
-          <Form.Item name="eventTime" label="Time" rules={[{ required: true, message: 'Please choose a time range for the event' }]}>
+          <Form.Item
+            name="eventTime"
+            label="Time"
+            rules={[
+              {
+                required: true,
+                message: 'Please choose a time range for the event'
+              }
+            ]}
+          >
             <RangePicker format="HH:mm" />
           </Form.Item>
           <Form.Item wrapperCol={{ ...layout.wrapperCol, offset: 8 }}>
             <Button type="primary" htmlType="submit">
               Submit
-          </Button>
+            </Button>
           </Form.Item>
         </Form>
       </div>
