@@ -12,6 +12,7 @@ import Landing from './components/Landing';
 import { useStitchAuth } from './components/StitchAuth/StitchAuth';
 import LogoutScreen from './components/LogoutScreen/LogoutScreen';
 import About from './components/About/';
+import UserEventsList from './components/UserEventsList/UserEventsList';
 
 function App() {
   const { isLoggedIn } = useStitchAuth();
