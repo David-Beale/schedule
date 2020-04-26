@@ -13,8 +13,20 @@
   color: rgb(63, 63, 63);
   transition: 0.6s;
 }
-
+a {
+  color: #f05537;
+  font-weight: bold;
+  font-family: 'Palanquin', sans-serif;
+  text-decoration: none;
+}
+.react-add-to-calendar__dropdown {
+  position: absolute;
+  z-index: 1000;
+  font-family: 'Palanquin', sans-serif;
+  color: #f05537;
+}
 ul {
+  position: absolute;
   list-style-type: none;
   margin: 0;
   width: 160px;
@@ -22,6 +34,13 @@ ul {
   text-align: left;
   padding: 5px 0px 5px 10px;
   background-color: white;
+  bottom: 0;
+}
+.options-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 .calendar-wrapper {
   text-align: 'center';
@@ -111,6 +130,19 @@ ul {
   font-size: 1.5rem;
   position: absolute;
   bottom: 1rem;
+}
+
+.patreon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px 5px;
+  background-color: white;
+  border: 1px solid rgba(189, 189, 189, 0.75);
+  border-radius: 3px;
+}
+.patreon-image {
+  width: 30px;
 }
 @media screen and (max-width: 750px) {
   .flip-card {
