@@ -37,7 +37,7 @@
 }
 
 .c2{
-  height:92vh;
+  max-height:92vh;
   margin-top:0vh;
   overflow:scroll;
   position: relative;
@@ -177,5 +177,9 @@
   }
   .date{
     margin-top:2.9rem;
+  }
+  .sched-time{
+    font-size: 0.9rem;
+    margin: 0 15vw;
   }
 }
