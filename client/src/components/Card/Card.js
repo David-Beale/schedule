@@ -36,17 +36,7 @@ function Card(props) {
               <Moment format="ddd Do MMM, HH:mm">{props.info.date}</Moment>
             </div>
             <div className="card-title">{props.info.title}</div>
-            <div
-              onClick={handleChildClick}
-              style={{
-                textAlign: 'center',
-                padding: '20px 0',
-                width: '160px',
-                height: '60px',
-                borderRadius: '3px',
-                backgroundColor: 'white'
-              }}
-            >
+            <div onClick={handleChildClick} className="calendar-wrapper">
               <AddToCalendar
                 event={{
                   title: props.info.title,

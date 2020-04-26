@@ -30,7 +30,7 @@ function UserEventsList() {
         />
       })}
     </div>
-  )
+  );
 }
 
 export default UserEventsList;

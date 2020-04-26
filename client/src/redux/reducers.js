@@ -15,12 +15,9 @@ const eventsReducer = (
       };
     }
     case 'postEvent': {
-      const newEvent = {
-        ...payload
-      };
       return {
         ...state,
-        events: [...state.events, newEvent]
+        events: [...state.events, payload]
       };
     }
     case 'deleteEvent': {
@@ -45,7 +42,7 @@ const eventsReducer = (
         ...state,
         myEvents: [...payload.eventList] || []
       };
-    };
+    }
     default:
       return state;
   }
