@@ -6,7 +6,6 @@ import AddToCalendar from 'react-add-to-calendar';
 import patreon from './patreon.png';
 
 function Card(props) {
-  console.log(props.info.patreonUrl);
   let items = [{ outlook: 'Outlook' }, { google: 'Google' }, { apple: 'iCal' }];
   const [flipped, setFlipped] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);

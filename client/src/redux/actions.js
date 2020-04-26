@@ -18,7 +18,7 @@ export const addEvent = (eventData, userId) => async (dispatch) => {
 
 export const removeEvent = (eventId) => async (dispatch) => {
   await events.deleteOne({ _id: eventId });
-  dispatch({ type: 'deleteEvent', payload: { id: eventId } });
+  dispatch({ type: 'deleteEvent', payload: { _id: eventId } });
 };
 
 export const updateEventStatus = (eventId) => async (dispatch) => {

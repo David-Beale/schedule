@@ -21,7 +21,8 @@ const eventsReducer = (
       };
     }
     case 'deleteEvent': {
-      const removeSpecifiedEvent = (event) => event.id !== payload.id;
+      const removeSpecifiedEvent = (event) => !event._id.equals(payload._id);
+
       return {
         ...state,
         events: state.events.filter(removeSpecifiedEvent)
