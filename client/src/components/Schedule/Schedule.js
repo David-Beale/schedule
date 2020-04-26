@@ -115,7 +115,6 @@ function Schedule (props) {
     }
   }, [hoursArray]);
   useEffect(() => {
-    console.log(data)
     if (hoursArray.length > 0 && data.length > 0) {
       // Database info processing
       let localRowCounter = rowCounter;
@@ -129,13 +128,11 @@ function Schedule (props) {
         const startBlock = Math.floor(contentHours * 4 + contentMins / 15);
         let endTime = startTime + contentLength / 60
         let blockEnd = Math.ceil((contentHours * 4 + contentMins / 15) + (contentLength / 15))
-        console.log(blockEnd, startTime, contentLength)
         if(blockEnd > 96){
           blockEnd = 96;
           contentLength = 1440-startTime*60;
           endTime = 1440;
         }
-        console.log(blockEnd, startTime, contentLength)
         let spaceCheck;
         let selectedRow;
         for (let i = 0; i < localRowStorage.length; i++) {
