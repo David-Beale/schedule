@@ -5,7 +5,6 @@ import EventModal from '../EventModal/EventModal';
 import AddToCalendar from 'react-add-to-calendar';
 
 function Card(props) {
-  console.log(props);
   let items = [{ outlook: 'Outlook' }, { google: 'Google' }, { apple: 'iCal' }];
   const [flipped, setFlipped] = useState(false);
   const [modalVisible, setModalVisible] = useState(false);
@@ -37,17 +36,7 @@ function Card(props) {
               <Moment format="ddd Do MMM, HH:mm">{props.info.date}</Moment>
             </div>
             <div className="card-title">{props.info.title}</div>
-            <div
-              onClick={handleChildClick}
-              style={{
-                textAlign: 'center',
-                padding: '20px 0',
-                width: '160px',
-                height: '60px',
-                borderRadius: '3px',
-                backgroundColor: 'white'
-              }}
-            >
+            <div onClick={handleChildClick} className="calendar-wrapper">
               <AddToCalendar
                 event={{
                   title: props.info.title,
