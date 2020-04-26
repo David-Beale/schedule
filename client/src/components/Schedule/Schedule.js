@@ -184,9 +184,9 @@ function Schedule (props) {
         const newTitle = document.createElement('div');
         newTitle.className = `content-title`;
         newTitle.innerHTML = filteredData[i].title;
-        const newDescription = document.createElement('div');
-        newDescription.className = `content-description`;
-        newDescription.innerHTML = filteredData[i].description;
+        // const newDescription = document.createElement('div');
+        // newDescription.className = `content-description`;
+        // newDescription.innerHTML = filteredData[i].description;
         const newImageContainer = document.createElement('div');
         newImageContainer.className = `content-image-container`;
         if (width < 175) {
@@ -198,7 +198,7 @@ function Schedule (props) {
         newImage.src = filteredData[i].image;
         newContent.appendChild(newImageContainer);
         newContent.appendChild(newTitle);
-        newContent.appendChild(newDescription);
+        // newContent.appendChild(newDescription);
         document
           .querySelector(`#row${selectedRow} #time${contentHours}`)
           .appendChild(newContent);
