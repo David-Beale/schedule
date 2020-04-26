@@ -42,6 +42,7 @@ function App() {
         <Route exact path='/logout' component={LogoutScreen}></Route>
         <Route exact path='/schedule' component={Schedule} />
         <Route exact path='/about' component={About} />
+        <Route exact path='/events' component={UserEventsList} />
         {isLoggedIn && <Route exact path='/form' component={EventForm} />}
         <Route component={NoMatch} />
       </AnimatedSwitch>
