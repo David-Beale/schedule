@@ -10,7 +10,7 @@ function Schedule(props) {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
   const dataStart = useSelector(({ eventsReducer }) => eventsReducer.events);
-  const today = Date.now();
+  const today = new Date();
   const [currentDay, setCurrentDay] = useState(today);
   const hours = today.getHours();
   const minutes = today.getMinutes();
@@ -33,13 +33,13 @@ function Schedule(props) {
         localHours.push(
           <div
             id={`margin${i}`}
-            className='grid-item1'
+            className="grid-item1"
             key={i}
           >{`${index}:00`}</div>
         );
       else
         localHours.push(
-          <div className='grid-item1 end' key={i}>{`${index}:00`}</div>
+          <div className="grid-item1 end" key={i}>{`${index}:00`}</div>
         );
     }
     setHoursArray(localHours);
@@ -47,10 +47,10 @@ function Schedule(props) {
     const tempRows = [];
     const content = [];
     for (let i = 0; i < 24; i++) {
-      content.push(<div className='grid-item2' id={`time${i}`} key={i}></div>);
+      content.push(<div className="grid-item2" id={`time${i}`} key={i}></div>);
     }
     tempRows.push(
-      <div className='flex-container fc2' id={`row${0}`} key={0}>
+      <div className="flex-container fc2" id={`row${0}`} key={0}>
         {content}
       </div>
     );
@@ -282,23 +282,23 @@ function Schedule(props) {
     setFilteredData(filtered);
   };
   return (
-    <div className='outer-container'>
-      <div className='container date'>
-        <div onClick={dayBack} className='arrow'>
+    <div className="outer-container">
+      <div className="container date">
+        <div onClick={dayBack} className="arrow">
           &#x2B05;
         </div>{' '}
-        <Moment className='sched-time' format='ddd Do MMM'>
+        <Moment className="sched-time" format="ddd Do MMM">
           {currentDay}
         </Moment>{' '}
-        <div onClick={dayFwd} className='arrow'>
+        <div onClick={dayFwd} className="arrow">
           &#x27A1;
         </div>
       </div>
-      <div className='container c1'>
-        <div className='flex-container fc1'>{hoursArray}</div>
+      <div className="container c1">
+        <div className="flex-container fc1">{hoursArray}</div>
       </div>
 
-      <div className='container c2'>{rows}</div>
+      <div className="container c2">{rows}</div>
     </div>
   );
 }
