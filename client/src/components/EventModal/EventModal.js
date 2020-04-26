@@ -13,12 +13,14 @@ function EventModal({ info, visible, toggleModal }) {
       footer={null}
       bodyStyle={{ background: 'black' }}
       width={'70vw'}
+      height={'75vh'}
     >
       <ReactPlayer
         url={info.streamUrl}
         playing={visible}
         controls={true}
         width="100%"
+        height="75vh"
       />
     </Modal>
   );
