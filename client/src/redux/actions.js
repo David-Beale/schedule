@@ -8,10 +8,12 @@ export const loadEvents = () => async (dispatch) => {
 export const addEvent = (eventData, userId) => async (dispatch) => {
   const event = { createdAt: new Date(), eventData, user_id: userId };
   const result = await events.insertOne(event);
-  dispatch({
-    type: 'postEvent',
-    payload: { ...result }
-  });
+  if (result) {
+    dispatch({
+      type: 'postEvent',
+      payload: { ...event }
+    });
+  }
 };
 
 export const removeEvent = (eventId) => async (dispatch) => {
