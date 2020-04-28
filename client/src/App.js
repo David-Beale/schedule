@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { BrowserRouter as Router, Route, Redirect } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Redirect, Switch } from 'react-router-dom';
 import { AnimatedSwitch } from 'react-router-transition';
 import { loadEvents } from './redux/actions';
 import Login from './components/Login';
@@ -28,12 +28,13 @@ function App() {
   return (
     <Router>
       <Navigation />
-      <AnimatedSwitch
+      {/* <AnimatedSwitch
         atEnter={{ opacity: 0 }}
         atLeave={{ opacity: 0 }}
         atActive={{ opacity: 1 }}
         className='switch-wrapper'
-      >
+      > */}
+      <Switch>
         {isLoggedIn ? (
           <Redirect from='/login' to='/' component={Landing} />
         ) : (
@@ -46,7 +47,8 @@ function App() {
         <Route exact path='/events' component={UserEventsList} />
         {isLoggedIn && <Route exact path='/form' component={EventForm} />}
         <Route component={NoMatch} />
-      </AnimatedSwitch>
+      {/* </AnimatedSwitch> */}
+      </Switch>
     </Router>
   );
 }
