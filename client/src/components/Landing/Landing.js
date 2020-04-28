@@ -60,10 +60,9 @@ function Landing(props) {
         <div className="header-container">
           <div className="header-text">
             <div className="title-container">
-              <h2>Performing From Home</h2>
+              <h2>Performing From Home?</h2>
               <h3 className="title-sub">
-                is here to help artists who have been affected by the
-                Coronavirus
+                We are here to help artists who have been affected by COVID-19
               </h3>
             </div>
             <div className="support">

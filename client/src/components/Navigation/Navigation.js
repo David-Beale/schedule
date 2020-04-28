@@ -17,7 +17,7 @@ function Navigation(props) {
   return (
     <div id="myTopnav" className="navigation-container">
       <Link to="/" id="logo" className="button">
-        <div className="navigation-name">Logo</div>
+        <div className="navigation-name">ViralCulture</div>
       </Link>
       <div className="navigation-links-container">
         <Link className="button menu" onClick={toggleMenu} to="/">
